@@ -31,20 +31,21 @@ public class BikeController : MonoBehaviour
 
 
     //For shooting
-    private Transform cameraTransform;
+    public Transform cameraTransform;
     public LayerMask enemyLayer;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.developerConsoleVisible = true;
         sphereRb.transform.parent = null;
         bikeBody.transform.parent = null;
         sphereRb.drag = 0.1f;  // Lower value makes it slide more
         sphereRb.angularDrag = 1f; // Keeps turning responsive
 
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 6f;
-        cameraTransform = GetComponent<Camera>().GetComponent<>();
+        //cameraTransform = GetComponent<Camera>().GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -52,16 +53,24 @@ public class BikeController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
+       
         transform.position = sphereRb.transform.position;
 
         speedText.text = sphereRb.velocity.magnitude.ToString();
 
         velocity2 = bikeBody.transform.InverseTransformDirection(bikeBody.velocity);
         currentVelocityOffset = velocity2.z / maxSpeed;
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("reached if statment");
+            Shoot();
+        }
     }
 
     private void FixedUpdate()
     {
+
+        
         Movement();
       //  Brake();
     }
@@ -199,8 +208,11 @@ public class BikeController : MonoBehaviour
     }
  
     void Shoot() {
+
+        Debug.Log("Reached shoot method");
         RaycastHit hit;
-        if(Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, enemyLayer)) {
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, enemyLayer))
+        {
 
             Debug.Log("Hit!");
 
