@@ -27,6 +27,14 @@ public class BikeController : MonoBehaviour
     //for backflip 
     public float flipSpeed = 5f;
     private float flipProgress = 0f;
+
+
+
+    //For shooting
+    private Transform cameraTransform;
+    public LayerMask enemyLayer;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +44,7 @@ public class BikeController : MonoBehaviour
         sphereRb.angularDrag = 1f; // Keeps turning responsive
 
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 6f;
+        cameraTransform = GetComponent<Camera>().GetComponent<>();
     }
 
     // Update is called once per frame
@@ -70,7 +79,6 @@ public class BikeController : MonoBehaviour
             PerformBackflip();
             Gravity();
         }
-
     }
     void Acceleration()
     {
@@ -188,5 +196,14 @@ public class BikeController : MonoBehaviour
     void Gravity()
     {
         sphereRb.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
+    }
+ 
+    void Shoot() {
+        RaycastHit hit;
+        if(Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, enemyLayer)) {
+
+            Debug.Log("Hit!");
+
+        }
     }
 }
