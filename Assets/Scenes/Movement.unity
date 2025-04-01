@@ -2804,6 +2804,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   flipSpeed: 180
+  cameraTransform: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1607285024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,7 +3173,7 @@ MonoBehaviour:
     m_Bits: 512
   cameraTransform: {fileID: 172269019}
   gunStartPoint: {fileID: 619978663}
-  gunRange: 100
+  gunRange: 500
   shootLine: {fileID: 1779255861}
 --- !u!1 &1800869055
 GameObject:

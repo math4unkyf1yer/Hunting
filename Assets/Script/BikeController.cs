@@ -60,11 +60,7 @@ public class BikeController : MonoBehaviour
 
         velocity2 = bikeBody.transform.InverseTransformDirection(bikeBody.velocity);
         currentVelocityOffset = velocity2.z / maxSpeed;
-        if (Input.GetMouseButton(0))
-        {
-            Debug.Log("reached if statment");
-            Shoot();
-        }
+       
     }
 
     private void FixedUpdate()
@@ -207,7 +203,7 @@ public class BikeController : MonoBehaviour
         sphereRb.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
     }
  
-    void Shoot() {
+  /*  void Shoot() {
 
         Debug.Log("Reached shoot method");
         RaycastHit hit;
@@ -217,5 +213,5 @@ public class BikeController : MonoBehaviour
             Debug.Log("Hit!");
 
         }
-    }
+    }*/
 }
