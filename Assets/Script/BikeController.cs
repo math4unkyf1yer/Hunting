@@ -16,7 +16,7 @@ public class BikeController : MonoBehaviour
     [HideInInspector] public Vector3 velocity2;
     public GameObject handle;
 
-    public Rigidbody sphereRb, bikeBody;
+    public Rigidbody sphereRb, bikeBody, player;
 
     public LayerMask drivableLayer;
 
@@ -74,15 +74,24 @@ public class BikeController : MonoBehaviour
     }
     void Acceleration()
     {
-        float targetSpeed = maxSpeed; // The speed we want to reach
-        float accelerationRate = acceleration * Time.fixedDeltaTime; // Speed up gradually
-
-        // Increase velocity gradually
         float currentSpeed = sphereRb.velocity.magnitude; // Get current speed
-        float newSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accelerationRate); // Smooth acceleration
+        float targetSpeed = maxSpeed; // Default target speed
+        float accelerationRate = acceleration * Time.fixedDeltaTime; // Acceleration factor
+
+        if (moveInput < 0) // Pressing 'S' or down arrow
+        {
+            targetSpeed = 0; // Decelerate to stop
+            accelerationRate *= brakeFactor; // Apply brake factor
+        }
+
+        float newSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accelerationRate); // Smooth transition
 
         sphereRb.velocity = transform.forward * newSpeed; // Apply new speed
-        Debug.Log(sphereRb.velocity.magnitude);
+
+        if (newSpeed <= 5f) // If stopped, trigger game over
+        {
+            Debug.Log("Fall of bike");
+        }
     }
 
     void Rotation()
@@ -154,6 +163,7 @@ public class BikeController : MonoBehaviour
 
         Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
         bikeBody.MoveRotation(newRotation);
+        
     }
     void PerformBackflip()
     {
