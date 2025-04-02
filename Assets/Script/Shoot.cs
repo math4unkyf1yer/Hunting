@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour
     public Transform gunStartPoint;    // Where the gun is located
     public int gunRange = 100;         // Range of the gun
     public LineRenderer shootLine;     // LineRenderer component to show the shot
+    public CameraSwitch cameraSwitchScript;
 
     private void Update()
     {

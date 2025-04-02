@@ -7,6 +7,7 @@ public class CameraSwitch : MonoBehaviour
 {
     public GameObject followCamera;
     public GameObject aimCamera;
+    public GameObject crossHair;
     public AimCamera aimCameraSwitch;
     private Transform playerRotation;
     public Transform bikeRotation;
@@ -14,13 +15,12 @@ public class CameraSwitch : MonoBehaviour
     public CinemachineFreeLook aimCameracin; // The aim camera
     private float originalCameraX; // Store Cinemachine X rotation
     private float originalCameraY; // Store Cinemachine Y rotation
-    private bool isAiming = false;
+    public bool isAiming = false;
 
     void Start()
     {
         playerRotation = GameObject.Find("Player").GetComponent<Transform>();
-        followCamera.SetActive(true);
-        aimCamera.SetActive(false);
+       
 
         originalCameraX = aimCameracin.m_XAxis.Value; // Store X-axis rotation
         originalCameraY = aimCameracin.m_YAxis.Value; // Store Y-axis rotation
@@ -28,7 +28,7 @@ public class CameraSwitch : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) // Right-click pressed
+     /*   if (Input.GetMouseButtonDown(1) && isAiming == false) // Right-click pressed
         {
             isAiming = true;
             followCamera.SetActive(false);
@@ -36,10 +36,14 @@ public class CameraSwitch : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(1)) // Right-click released
         {
-            isAiming = false;
             followCamera.SetActive(true);
             StartCoroutine(SmoothRotateBack()); // Start smooth rotation back
-        }
+        }*/
+
+      /*  if (!isAiming)
+        {
+            UpdateCinemachineRotation();
+        }*/
     }
 
     IEnumerator SmoothRotateBack()
@@ -55,13 +59,15 @@ public class CameraSwitch : MonoBehaviour
             yield return null; // Wait for next frame
         }
 
-        // Reset Cinemachine Camera before disabling it
-        aimCameracin.m_XAxis.Value = bikeRotation.rotation.eulerAngles.y;
 
         playerRotation.rotation = targetRotation; // Ensure it's fully reset
 
-
-
         aimCamera.SetActive(false);
+        isAiming = false;
+    }
+
+    void UpdateCinemachineRotation()
+    {
+        aimCameracin.m_XAxis.Value = bikeRotation.rotation.eulerAngles.y;
     }
 }

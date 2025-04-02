@@ -28,7 +28,8 @@ public class BikeController : MonoBehaviour
     public float flipSpeed = 5f;
     private float flipProgress = 0f;
 
-
+    //script
+    private CameraSwitch cameraScript;
 
     //For shooting
     public Transform cameraTransform;
@@ -44,8 +45,8 @@ public class BikeController : MonoBehaviour
         sphereRb.drag = 0.1f;  // Lower value makes it slide more
         sphereRb.angularDrag = 1f; // Keeps turning responsive
 
+        cameraScript = gameObject.GetComponent<CameraSwitch>();
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 6f;
-        //cameraTransform = GetComponent<Camera>().GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -64,9 +65,7 @@ public class BikeController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-
-        
+    {      
         Movement();
       //  Brake();
     }
@@ -74,10 +73,18 @@ public class BikeController : MonoBehaviour
     void Movement()
     {
         if (Grounded())
-        {
-            Acceleration();
-            Rotation();
-            BikeTilt();
+        {        
+           Acceleration();
+          if (cameraScript.isAiming == false)
+            {
+                Rotation();
+                BikeTilt();
+            }
+            else
+            {
+                ResetBikeTilt(); // Ensure bike stabilizes while aiming
+            }
+
         }
         else
         {
@@ -119,6 +126,27 @@ public class BikeController : MonoBehaviour
             Quaternion.Euler(handle.transform.localRotation.eulerAngles.x, hadleRotVal * steerInput, handle.transform.localRotation.eulerAngles.z),
             handleRotSpeed
         );
+    }
+
+    void BikeTilt()
+    {
+        float xRot = (Quaternion.FromToRotation(bikeBody.transform.up, hit.normal) * bikeBody.transform.rotation).eulerAngles.x;
+        float zRot = -zTitlAngle * steerInput; // Tilt the bike based on steering input
+
+        Quaternion targetRot = Quaternion.Slerp(
+            bikeBody.transform.rotation,
+            Quaternion.Euler(xRot, transform.eulerAngles.y, zRot),
+            bikeTiltIncrement
+        );
+
+        Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
+        bikeBody.MoveRotation(newRotation);
+
+    }
+    void ResetBikeTilt()
+    {
+        Quaternion targetRotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+        bikeBody.MoveRotation(targetRotation);
     }
     public void ActivateSpeedBoost(float boostAmount, float duration)
     {
@@ -163,21 +191,6 @@ public class BikeController : MonoBehaviour
         isBoosting = false;
     }
 
-    void BikeTilt()
-    {
-        float xRot = (Quaternion.FromToRotation(bikeBody.transform.up, hit.normal) * bikeBody.transform.rotation).eulerAngles.x;
-        float zRot = -zTitlAngle * steerInput; // Tilt the bike based on steering input
-
-        Quaternion targetRot = Quaternion.Slerp(
-            bikeBody.transform.rotation,
-            Quaternion.Euler(xRot, transform.eulerAngles.y, zRot),
-            bikeTiltIncrement
-        );
-
-        Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
-        bikeBody.MoveRotation(newRotation);
-        
-    }
     void PerformBackflip()
     {
         if (Input.GetKey(KeyCode.Space))

@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 61836864}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,7 +506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &172269017
 AudioListener:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 270724465}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1756,6 +1756,7 @@ MonoBehaviour:
   gunStartPoint: {fileID: 1994139447}
   gunRange: 500
   shootLine: {fileID: 756602524}
+  cameraSwitchScript: {fileID: 1566826020}
 --- !u!1 &803571684
 GameObject:
   m_ObjectHideFlags: 3
@@ -1849,7 +1850,7 @@ GameObject:
   - component: {fileID: 941642089}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1954,7 +1955,7 @@ GameObject:
   - component: {fileID: 1226054087}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2467,7 +2468,7 @@ GameObject:
   - component: {fileID: 1404892271}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2958,9 +2959,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followCamera: {fileID: 172269016}
   aimCamera: {fileID: 1379698056}
+  crossHair: {fileID: 320049888}
   aimCameraSwitch: {fileID: 0}
   bikeRotation: {fileID: 1566826018}
   aimCameracin: {fileID: 334552009}
+  isAiming: 0
 --- !u!1 &1607285024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,7 +3112,7 @@ GameObject:
   - component: {fileID: 1684514806}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3214,7 +3217,7 @@ GameObject:
   - component: {fileID: 1800869057}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
