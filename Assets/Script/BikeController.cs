@@ -9,9 +9,13 @@ public class BikeController : MonoBehaviour
     float moveInput, steerInput , rayLenght, currentVelocityOffset;
     public TextMeshProUGUI speedText;
     public float maxSpeed, acceleration, steerStrenght, tiltAngle, gravity, bikeTiltIncrement = 0.09f, zTitlAngle = 45, hadleRotVal = 30f, handleRotSpeed = .15f;
-    public float minimumSpeed = 100;
     [Range(1,10)]
     public float brakeFactor;
+    public float speedCheck;//use for if the bike blows up;
+
+    //Spawn
+    public GameObject spawnPosition;
+    public GameObject crashEffect;
 
     [HideInInspector] public Vector3 velocity2;
     public GameObject handle;
@@ -31,9 +35,6 @@ public class BikeController : MonoBehaviour
     //script
     private CameraSwitch cameraScript;
 
-    //For shooting
-    public Transform cameraTransform;
-    public LayerMask enemyLayer;
 
 
     // Start is called before the first frame update
@@ -57,7 +58,8 @@ public class BikeController : MonoBehaviour
        
         transform.position = sphereRb.transform.position;
 
-        speedText.text = sphereRb.velocity.magnitude.ToString();
+        speedCheck = sphereRb.velocity.magnitude;
+        speedText.text = speedCheck.ToString();
 
         velocity2 = bikeBody.transform.InverseTransformDirection(bikeBody.velocity);
         currentVelocityOffset = velocity2.z / maxSpeed;
@@ -108,10 +110,35 @@ public class BikeController : MonoBehaviour
 
         sphereRb.velocity = transform.forward * newSpeed; // Apply new speed
 
-        if (newSpeed <= 5f) // If stopped, trigger game over
+        if (newSpeed <= 55f) // If stopped, trigger game over
         {
-            Debug.Log("Fall of bike");
+            //falling over 
+            Stalling();
         }
+    }
+
+    void Stalling()
+    {
+        // Stop movement
+        sphereRb.velocity = Vector3.zero;
+        sphereRb.angularVelocity = Vector3.zero;
+
+        // Optional: Disable controls while falling
+        moveInput = 0;
+        steerInput = 0;
+    }
+    void DestroyBike()
+    {
+        crashEffect.SetActive(true);
+        bikeBody.gameObject.SetActive(false);
+        StartCoroutine(SpawnBack());
+    }
+    IEnumerator SpawnBack()
+    {
+        yield return new WaitForSeconds(2f);
+        bikeBody.gameObject.SetActive(true);
+        sphereRb.position = spawnPosition.transform.position;
+        gameObject.transform.position = spawnPosition.transform.position;
     }
 
     void Rotation()
@@ -206,13 +233,6 @@ public class BikeController : MonoBehaviour
         }
     }
 
-    void Brake()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            sphereRb.velocity *= brakeFactor / 10;
-        }
-    }
     bool Grounded()
     {
         if(Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
@@ -225,16 +245,13 @@ public class BikeController : MonoBehaviour
     {
         sphereRb.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
     }
- 
-  /*  void Shoot() {
 
-        Debug.Log("Reached shoot method");
-        RaycastHit hit;
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, enemyLayer))
+    public void CheckCollision()
+    {
+        if(speedCheck >= 160)
         {
-
-            Debug.Log("Hit!");
-
+            DestroyBike();
         }
-    }*/
+    }
+
 }
