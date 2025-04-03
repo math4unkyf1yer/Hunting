@@ -528,7 +528,7 @@ Transform:
   m_GameObject: {fileID: 172269016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0318875, y: 185.31058, z: 5.7538924}
+  m_LocalPosition: {x: 13.889999, y: 186.9421, z: -36.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -905,7 +905,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1802827781}
@@ -1641,7 +1641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1078249097
 Transform:
   m_ObjectHideFlags: 0
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1566826018}
   m_Follow: {fileID: 1566826018}
@@ -3409,32 +3409,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c287dd87ebc924dbbd3bd8cfca1240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedText: {fileID: 0}
-  maxSpeed: 0
-  acceleration: 0
-  steerStrenght: 0
-  tiltAngle: 0
-  gravity: 0
-  bikeTiltIncrement: 0.09
-  zTitlAngle: 45
-  hadleRotVal: 30
-  handleRotSpeed: 0.15
-  minimumSpeed: 100
-  brakeFactor: 0
-  velocity2: {x: 0, y: 0, z: 0}
-  handle: {fileID: 0}
-  sphereRb: {fileID: 0}
-  bikeBody: {fileID: 0}
-  drivableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  flipSpeed: 5
-  cameraTransform: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  cameraTransform: {fileID: 0}
+  gunStartPoint: {fileID: 0}
+  gunRange: 100
+  shootLine: {fileID: 0}
   shotgunReticle: {fileID: 1813309450}
   sniperReticle: {fileID: 1879472741}
+  isSniper: 1
 --- !u!1 &1800869055
 GameObject:
   m_ObjectHideFlags: 0
