@@ -98,6 +98,10 @@ public class BikeController : MonoBehaviour
         Debug.Log(sphereRb.velocity.magnitude);
     }
 
+    public void FirstPersonController() {
+
+    }
+
     void Rotation()
     {
         // Tilt-based steering: The more the player tilts, the sharper the turn
@@ -203,15 +207,15 @@ public class BikeController : MonoBehaviour
         sphereRb.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
     }
  
-  /*  void Shoot() {
+    // void Shoot() {
 
-        Debug.Log("Reached shoot method");
-        RaycastHit hit;
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, enemyLayer))
-        {
+    //     Debug.Log("Reached shoot method");
+    //     RaycastHit hit;
+    //     if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, enemyLayer))
+    //     {
 
-            Debug.Log("Hit!");
+    //         Debug.Log("Hit!");
 
-        }
-    }*/
+    //     }
+    // }
 }

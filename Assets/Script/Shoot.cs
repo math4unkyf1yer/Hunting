@@ -10,6 +10,12 @@ public class Shoot : MonoBehaviour
     public int gunRange = 100;         // Range of the gun
     public LineRenderer shootLine;     // LineRenderer component to show the shot
 
+    private Shotgun shotgun;
+
+
+    void Start () {
+        shotgun = GetComponent<Shotgun>();
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))  // Example: Left mouse click to shoot
@@ -18,38 +24,98 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    void ShootRaycast()
+    public void ShootRaycast()
     {
         RaycastHit hit;
 
         // Start the ray from the camera and shoot forward
         Vector3 shootDirection = cameraTransform.forward;
 
-        // Perform the raycast
-        if (Physics.Raycast(gunStartPoint.position, shootDirection, out hit, gunRange, enemyLayer))
-        {
-            Debug.Log("Hit " + hit.collider.tag);
 
-            // Show the line from the gun to the hit point
-            shootLine.SetPosition(0, gunStartPoint.position);
-            shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
+        // Check if you're in first or third person view
 
-            // Optionally, you could add effects, like applying damage to the enemy
-            // Example: hit.collider.GetComponent<Enemy>().TakeDamage(damage);
+        if(shotgun.isSniper == true) {
+            // Perform the raycast
+            if (Physics.Raycast(gunStartPoint.position, shootDirection, out hit, gunRange, enemyLayer))
+            {
+                Debug.Log("Hit " + hit.collider.tag);
+
+                // Show the line from the gun to the hit point
+                shootLine.SetPosition(0, gunStartPoint.position);
+                shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
+
+                // Optionally, you could add effects, like applying damage to the enemy
+                // Example: hit.collider.GetComponent<Enemy>().TakeDamage(damage);
+
+            }
+            else
+            {
+                // If the ray doesn't hit anything, set the line to end at max range
+                shootLine.SetPosition(0, gunStartPoint.position);
+                shootLine.SetPosition(1, gunStartPoint.position + shootDirection * gunRange);
+            }
+
+            // Activate the line for the shot duration
+            shootLine.enabled = true;
+
+            // Optionally, hide the line after a brief time (e.g., 0.1 seconds)
+            StartCoroutine(HideShootLine());
 
         }
-        else
-        {
-            // If the ray doesn't hit anything, set the line to end at max range
-            shootLine.SetPosition(0, gunStartPoint.position);
-            shootLine.SetPosition(1, gunStartPoint.position + shootDirection * gunRange);
+        else if (shotgun.isSniper == false) {
+            
+            if (Physics.Raycast(cameraTransform.position, shootDirection, out hit, gunRange, enemyLayer))
+            {
+                
+                Debug.Log("Hit " + hit.collider.tag);
+
+                // Show the line from the gun to the hit point
+                shootLine.SetPosition(0, gunStartPoint.position);
+                shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
+
+                // Optionally, you could add effects, like applying damage to the enemy
+                // Example: hit.collider.GetComponent<Enemy>().TakeDamage(damage);
+
+            }
+            else
+            {
+                // If the ray doesn't hit anything, set the line to end at max range
+                shootLine.SetPosition(0, cameraTransform.position);
+                shootLine.SetPosition(1, cameraTransform.position + shootDirection * gunRange);
+            }
+
+            // Activate the line for the shot duration
+            shootLine.enabled = true;
+
+            // Optionally, hide the line after a brief time (e.g., 0.1 seconds)
+            StartCoroutine(HideShootLine());
         }
 
-        // Activate the line for the shot duration
-        shootLine.enabled = true;
+        // // Perform the raycast
+        // if (Physics.Raycast(gunStartPoint.position, shootDirection, out hit, gunRange, enemyLayer))
+        // {
+        //     Debug.Log("Hit " + hit.collider.tag);
 
-        // Optionally, hide the line after a brief time (e.g., 0.1 seconds)
-        StartCoroutine(HideShootLine());
+        //     // Show the line from the gun to the hit point
+        //     shootLine.SetPosition(0, gunStartPoint.position);
+        //     shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
+
+        //     // Optionally, you could add effects, like applying damage to the enemy
+        //     // Example: hit.collider.GetComponent<Enemy>().TakeDamage(damage);
+
+        // }
+        // else
+        // {
+        //     // If the ray doesn't hit anything, set the line to end at max range
+        //     shootLine.SetPosition(0, gunStartPoint.position);
+        //     shootLine.SetPosition(1, gunStartPoint.position + shootDirection * gunRange);
+        // }
+
+        // // Activate the line for the shot duration
+        // shootLine.enabled = true;
+
+        // // Optionally, hide the line after a brief time (e.g., 0.1 seconds)
+        // StartCoroutine(HideShootLine());
     }
 
     private IEnumerator HideShootLine()//hide after afew sec
