@@ -1,0 +1,5 @@
+ammo system:
+
+two loss conditions
+
+if you bump into something at 100 speed, lose 1 ammo, 200 speed 2 ammo, 300 (Max speed) you die
