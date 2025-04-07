@@ -555,7 +555,7 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_VerticalRecentering:
-    m_enabled: 1
+    m_enabled: 0
     m_WaitTime: 1
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
@@ -579,7 +579,7 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_HorizontalRecentering:
-    m_enabled: 1
+    m_enabled: 0
     m_WaitTime: 1
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
@@ -668,6 +668,8 @@ MonoBehaviour:
   tpsCam: {fileID: 334552009}
   tpsTransposer: {fileID: 0}
   fpsTransposer: {fileID: 0}
+  playerObject: {fileID: 1522955081}
+  changePos: {x: 0, y: 0, z: 0}
 --- !u!1 &270724463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,8 +2700,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379698056}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.033626225, y: 0.048863158, z: 0.0016459838, w: 0.99823797}
-  m_LocalPosition: {x: 3.5685246, y: -0.29362383, z: -24.927069}
+  m_LocalRotation: {x: -0.033626243, y: 0.048863158, z: 0.0016459846, w: 0.99823797}
+  m_LocalPosition: {x: 3.5685244, y: -0.2936238, z: -24.927067}
   m_LocalScale: {x: 1, y: 1.0065117, z: 0.9936024}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2722,7 +2724,7 @@ MonoBehaviour:
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 0
-  m_BlendUpdateMethod: 0
+  m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -3266,7 +3268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7f99cfa06baf3a44844b016366e1095, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
