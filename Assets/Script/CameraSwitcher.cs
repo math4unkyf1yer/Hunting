@@ -21,8 +21,7 @@ public class CameraSwitcher : MonoBehaviour
 
     public Vector3 changePos;
 
-    public Renderer colorRenderer;
-    private Material material;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +47,6 @@ public class CameraSwitcher : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1)) // Right-click pressed
         {
-            // Material mat = colorRenderer.material;
             float freeLookHorizontal = tpsCam.m_XAxis.Value;
             float freeLookVertical = tpsCam.m_YAxis.Value;
             var pov = fpsCam.GetCinemachineComponent<CinemachinePOV>();
