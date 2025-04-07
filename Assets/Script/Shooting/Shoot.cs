@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Shoot : MonoBehaviour
 {
@@ -10,21 +11,40 @@ public class Shoot : MonoBehaviour
     public int gunRange = 100;         // Range of the gun
     public int bodyDamage = 1;
     public int headDamage = 2;
+    public int amountOfBullet;
+    private int amountOfBulletShown;
+    private float sniperReload = 1.3f;
+    private bool reloading;
     public LineRenderer shootLine;     // LineRenderer component to show the shot
     public CameraSwitch cameraSwitchScript;
 
+    public TextMeshProUGUI bulletText;
     private Shotgun shotgun;
 
 
     void Start () {
         shotgun = GetComponent<Shotgun>();
+        amountOfBulletShown = amountOfBullet - 1;
+        bulletText.text = "1/" + amountOfBulletShown.ToString();
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))  // Example: Left mouse click to shoot
+        if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
         {
+            bulletText.text = "0/" + amountOfBulletShown.ToString();
+            reloading = true;
             ShootRaycast();
+            StartCoroutine(waitForReload());
         }
+    }
+
+    IEnumerator waitForReload()
+    {
+        yield return new WaitForSeconds(sniperReload);
+        amountOfBullet -= 1;
+        amountOfBulletShown = amountOfBullet - 1;
+        bulletText.text = "1/" + amountOfBulletShown.ToString();
+        reloading = false;
     }
 
     public void ShootRaycast()
