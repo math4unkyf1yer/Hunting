@@ -38,6 +38,7 @@ public class BikeController : MonoBehaviour
     //script
     private CameraSwitch cameraScript;
     private SpawnBikeBack spawnScript;
+    private Shoot shootScript;
 
 
 
@@ -55,6 +56,7 @@ public class BikeController : MonoBehaviour
         spawnScript = GameObject.Find("SaveSpawnPoint").GetComponent<SpawnBikeBack>();
         SaveSpawnPoint = GameObject.Find("SaveSpawnPoint").GetComponent<Transform>();
         speedText = GameObject.Find("SpeedText").GetComponent<TextMeshProUGUI>();
+        shootScript = GameObject.Find("Ak47Holder").GetComponent<Shoot>();
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 4f;
         StartCoroutine(Immortal());
     }
@@ -147,7 +149,6 @@ public class BikeController : MonoBehaviour
         steerInput = 0;
         SaveSpawnPoint.position = spawnPosition.transform.position;
         SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
-        crashEffect.SetActive(true);
         bikeBody.gameObject.SetActive(false);
         StartCoroutine(SpawnBack());
     }
@@ -277,6 +278,7 @@ public class BikeController : MonoBehaviour
 
             if (flipProgress >= 360f)
             {
+                shootScript.IncreaseAmmo(1);
                 flipProgress = 0f; // Reset after one full rotation
             }
         }

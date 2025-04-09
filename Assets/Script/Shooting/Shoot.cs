@@ -37,6 +37,12 @@ public class Shoot : MonoBehaviour
             StartCoroutine(waitForReload());
         }
     }
+    public void IncreaseAmmo(int bullet)
+    {
+        amountOfBullet += bullet;
+        amountOfBulletShown = amountOfBullet - 1;
+        bulletText.text = "1/" + amountOfBulletShown.ToString();
+    }
 
     IEnumerator waitForReload()
     {
@@ -120,31 +126,6 @@ public class Shoot : MonoBehaviour
             StartCoroutine(HideShootLine());
         }
 
-        // // Perform the raycast
-        // if (Physics.Raycast(gunStartPoint.position, shootDirection, out hit, gunRange, enemyLayer))
-        // {
-        //     Debug.Log("Hit " + hit.collider.tag);
-
-        //     // Show the line from the gun to the hit point
-        //     shootLine.SetPosition(0, gunStartPoint.position);
-        //     shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
-
-        //     // Optionally, you could add effects, like applying damage to the enemy
-        //     // Example: hit.collider.GetComponent<Enemy>().TakeDamage(damage);
-
-        // }
-        // else
-        // {
-        //     // If the ray doesn't hit anything, set the line to end at max range
-        //     shootLine.SetPosition(0, gunStartPoint.position);
-        //     shootLine.SetPosition(1, gunStartPoint.position + shootDirection * gunRange);
-        // }
-
-        // // Activate the line for the shot duration
-        // shootLine.enabled = true;
-
-        // // Optionally, hide the line after a brief time (e.g., 0.1 seconds)
-        // StartCoroutine(HideShootLine());
     }
 
     private IEnumerator HideShootLine()//hide after afew sec

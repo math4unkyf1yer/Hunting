@@ -26,7 +26,7 @@ public class HitBox : MonoBehaviour
     void Dead()
     {
         // refill bullets
-        shootScript.amountOfBullet += refillAmount;
+        shootScript.IncreaseAmmo(refillAmount);
         Destroy(gameObject);
     }
 }
