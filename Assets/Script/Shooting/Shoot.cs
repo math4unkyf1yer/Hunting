@@ -25,6 +25,8 @@ public class Shoot : MonoBehaviour
 
     void Start () {
         shotgun = GetComponent<Shotgun>();
+
+        // Should separate the ammo between the ak47 and shotgun
         amountOfBulletShown = amountOfBullet - 1;
         bulletText.text = "1/" + amountOfBulletShown.ToString();
         gunBroadcastScript = GetComponent<GunBroadCast>();
@@ -106,12 +108,32 @@ public class Shoot : MonoBehaviour
             
             if (Physics.Raycast(cameraTransform.position, shootDirection, out hit, gunRange, enemyLayer))
             {
-                
+
+
+                float distance = hit.distance;
+
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
                 Debug.Log("Hit " + hit.collider.tag);
+
+                Debug.Log(distance);
 
                 // Show the line from the gun to the hit point
                 shootLine.SetPosition(0, gunStartPoint.position);
                 shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
+
+                if (distance > 50) {
+                    enemy.RemoveHP(enemy.GetHP(), 1);
+                }
+                else if(distance > 20 && distance < 50) {
+
+                    // Get the enemy's HP, and the amount of damage
+                    Debug.Log("Distance was greater than 20 but less than 50");
+                    enemy.RemoveHP(enemy.GetHP(), 5);
+                }
+                else if(distance < 20) {
+                    Debug.Log("Distance was less than 20");
+                    enemy.RemoveHP(enemy.GetHP(), 10);
+                }
 
 
             }
