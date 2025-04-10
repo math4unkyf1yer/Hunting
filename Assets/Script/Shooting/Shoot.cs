@@ -20,18 +20,21 @@ public class Shoot : MonoBehaviour
 
     public TextMeshProUGUI bulletText;
     private Shotgun shotgun;
+    private GunBroadCast gunBroadcastScript;
 
 
     void Start () {
         shotgun = GetComponent<Shotgun>();
         amountOfBulletShown = amountOfBullet - 1;
         bulletText.text = "1/" + amountOfBulletShown.ToString();
+        gunBroadcastScript = GetComponent<GunBroadCast>();
     }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
         {
             bulletText.text = "0/" + amountOfBulletShown.ToString();
+            gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
             reloading = true;
             ShootRaycast();
             StartCoroutine(waitForReload());

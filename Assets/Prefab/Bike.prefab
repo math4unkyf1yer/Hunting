@@ -130,11 +130,12 @@ MonoBehaviour:
   sphereRb: {fileID: 8147631521621466991}
   bikeBody: {fileID: 8032549272308337462}
   player: {fileID: 0}
+  biketrickHolder: {fileID: 0}
   drivableLayer:
     serializedVersion: 2
     m_Bits: 256
-  flipSpeed: 180
   cantCrash: 0
+  playerAnimation: {fileID: 0}
 --- !u!1 &1909092736138054969
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +306,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 714498007306174771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6253418536704627824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4282546673187195881}
+  m_Layer: 0
+  m_Name: BikeTrickAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4282546673187195881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253418536704627824}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.19814327, y: 0.54645395, z: -0.71194583}
+  m_LocalScale: {x: 0.24147646, y: 0.24147646, z: 0.24147646}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 280807970183380698}
+  m_Father: {fileID: 5476513726412111826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7206399134774067190
 GameObject:
@@ -5509,7 +5542,6 @@ GameObject:
   - component: {fileID: 8032549272308337462}
   - component: {fileID: 1147545844760575581}
   - component: {fileID: 970819290841541346}
-  - component: {fileID: 3712713523833252476}
   m_Layer: 0
   m_Name: BikeBodyHolder
   m_TagString: Player
@@ -5525,12 +5557,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9060823306475312083}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 280807970183380698}
+  - {fileID: 4282546673187195881}
   m_Father: {fileID: 8820399078071615623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8032549272308337462
@@ -5596,42 +5628,41 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &3712713523833252476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9060823306475312083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9714d90f4ccd39c468e744d536544381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bikeControllerScript: {fileID: 1889792506134182914}
 --- !u!1001 &280807970183830890
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5476513726412111826}
+    m_TransformParent: {fileID: 4282546673187195881}
     m_Modifications:
     - target: {fileID: 159240, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
       propertyPath: m_Name
       value: Brat Stand up Set
       objectReference: {fileID: 0}
     - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.308322
+      objectReference: {fileID: 0}
+    - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.308315
+      objectReference: {fileID: 0}
+    - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10.308322
+      objectReference: {fileID: 0}
+    - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0030000012
+      value: -0.8081284
       objectReference: {fileID: 0}
     - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27103272
+      value: -3.3853605
       objectReference: {fileID: 0}
     - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.73
+      value: -0.07476805
       objectReference: {fileID: 0}
     - target: {fileID: 467888, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5835,8 +5866,12 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   gunStartPoint: {fileID: 2605206618711439844}
   gunRange: 500
+  bodyDamage: 1
+  headDamage: 2
+  amountOfBullet: 0
   shootLine: {fileID: 1178903546624285126}
   cameraSwitchScript: {fileID: 0}
+  bulletText: {fileID: 0}
 --- !u!114 &8733431247150886432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5855,8 +5890,12 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   gunStartPoint: {fileID: 0}
   gunRange: 100
+  bodyDamage: 1
+  headDamage: 2
+  amountOfBullet: 0
   shootLine: {fileID: 1178903546624285126}
   cameraSwitchScript: {fileID: 0}
+  bulletText: {fileID: 0}
   shotgunReticle: {fileID: 3626515204767707646, guid: f8c7948beffc5c34ebf8cce2cf915f15, type: 3}
   sniperReticle: {fileID: 2866449788214847164, guid: 3cd6f70db2bc30844949158f7f096eba, type: 3}
   isSniper: 1

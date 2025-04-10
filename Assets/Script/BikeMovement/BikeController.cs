@@ -22,6 +22,7 @@ public class BikeController : MonoBehaviour
     public GameObject handle;
 
     public Rigidbody sphereRb, bikeBody, player;
+    public GameObject biketrickHolder;
 
     public LayerMask drivableLayer;
 
@@ -30,8 +31,8 @@ public class BikeController : MonoBehaviour
     private float originalMaxSpeed;
 
     //for backflip 
-    public float flipSpeed = 5f;
-    private float flipProgress = 0f;
+    private bool isflipping;
+    private bool isStalling = false;
 
     public bool cantCrash;
 
@@ -39,12 +40,13 @@ public class BikeController : MonoBehaviour
     private CameraSwitch cameraScript;
     private SpawnBikeBack spawnScript;
     private Shoot shootScript;
-
+    public Animator playerAnimation;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        playerAnimation.enabled = false; // Prevents any animation from playing
         cantCrash = true;
         Debug.developerConsoleVisible = true;
         sphereRb.transform.parent = null;
@@ -75,6 +77,10 @@ public class BikeController : MonoBehaviour
         velocity2 = bikeBody.transform.InverseTransformDirection(bikeBody.velocity);
         currentVelocityOffset = velocity2.z / maxSpeed;
 
+        if (!Grounded())
+        {
+            PerformBackflip();
+        }
     }
 
     private void FixedUpdate()
@@ -85,7 +91,7 @@ public class BikeController : MonoBehaviour
 
     void Movement()
     {
-        if (Grounded())
+        if (Grounded() && !isStalling)
         {        
            Acceleration();
            Rotation();
@@ -94,7 +100,6 @@ public class BikeController : MonoBehaviour
         }
         else
         {
-            PerformBackflip();
             Gravity();
         }
     }
@@ -140,16 +145,21 @@ public class BikeController : MonoBehaviour
 
     void Stalling()
     {
+        if (isStalling) return;
+
+        isStalling = true;
+
         // Stop movement
         sphereRb.velocity = Vector3.zero;
         sphereRb.angularVelocity = Vector3.zero;
 
-        // Optional: Disable controls while falling
         moveInput = 0;
         steerInput = 0;
+
         SaveSpawnPoint.position = spawnPosition.transform.position;
         SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
-        bikeBody.gameObject.SetActive(false);
+
+        playerAnimation.enabled = true;
         StartCoroutine(SpawnBack());
     }
     void DestroyBike()
@@ -164,7 +174,9 @@ public class BikeController : MonoBehaviour
     }
     IEnumerator SpawnBack()
     {
+        playerAnimation.SetTrigger("Falling");
         yield return new WaitForSeconds(2f);
+        playerAnimation.enabled = false;
         // Reset position and rotation
         cantCrash = true;
         bikeBody.transform.position = SaveSpawnPoint.position;
@@ -187,6 +199,7 @@ public class BikeController : MonoBehaviour
         bikeBody.gameObject.SetActive(true);
         crashEffect.SetActive(false);
 
+        isStalling = false;
         // Make bike invincible for a few seconds again
         StartCoroutine(Immortal());
     }
@@ -270,18 +283,25 @@ public class BikeController : MonoBehaviour
 
     void PerformBackflip()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isflipping)
         {
-           flipProgress += flipSpeed * Time.deltaTime;
-            Quaternion newRotation = Quaternion.Euler(transform.eulerAngles.x - flipProgress, transform.eulerAngles.y, transform.eulerAngles.z);
-            bikeBody.MoveRotation(newRotation);
-
-            if (flipProgress >= 360f)
-            {
-                shootScript.IncreaseAmmo(1);
-                flipProgress = 0f; // Reset after one full rotation
-            }
+            StartCoroutine(trickRoutine());
         }
+    }
+    IEnumerator trickRoutine()
+    {
+        isflipping = true;
+        playerAnimation.enabled = true;
+        playerAnimation.SetTrigger("Trick");
+
+        yield return new WaitForSeconds(.8f);
+
+        playerAnimation.enabled = false;
+        isflipping = false;
+        // Reward the player
+        shootScript.IncreaseAmmo(1);
+
+        // Reset
     }
 
     bool Grounded()
