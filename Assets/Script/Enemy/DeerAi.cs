@@ -37,7 +37,7 @@ public class DeerAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         originalPosition = transform.position;
         agent.speed = patrolSpeed;
-
+        player = GameObject.Find("BikeBodyHolder").GetComponent<Transform>();
         PatrolArea();
     }
 
