@@ -10,6 +10,7 @@ public class AimCamera : MonoBehaviour
     public Rigidbody rb;
     public Transform combatLookAt;
 
+
     public float rotationSpeed;
     public float lookSensitivity = 2f;
 
@@ -34,28 +35,27 @@ public class AimCamera : MonoBehaviour
     {
         if (player == null || PlayerObj == null || orientation == null)
             return; // Skip update if references are missing
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
-        orientation.forward = viewDir.normalized;
         
          if(currentStyle == CameraStyle.Combat)
         {
 
-             Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
+            Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+            orientation.forward = viewDir.normalized;
+
+            Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
              orientation.forward = dirCombatLookAt.normalized;
              PlayerObj.forward = dirCombatLookAt.normalized;
 
+          
+        }
+        if(currentStyle == CameraStyle.basic)
+        {
             // EXTRA: Allow joystick to rotate the PlayerObj manually
             float joystickX = Input.GetAxis("RightStickHorizontal");
             float joystickY = Input.GetAxis("RightStickVertical");
-
             Vector3 inputDir = new Vector3(joystickX, 0, joystickY).normalized;
-
-            if (inputDir.magnitude > 0.1f)
-            {
-                Vector3 rotatedDir = orientation.transform.TransformDirection(inputDir); // make it relative to camera
-                PlayerObj.forward = Vector3.Slerp(PlayerObj.forward, rotatedDir, Time.deltaTime * rotationSpeed);
-            }
-
+            Vector3 rotatedDir = orientation.transform.TransformDirection(inputDir); // relative to camera
+            PlayerObj.forward = Vector3.Slerp(PlayerObj.forward, rotatedDir, Time.deltaTime * rotationSpeed);
         }
     }
 }

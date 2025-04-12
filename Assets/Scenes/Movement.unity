@@ -2430,7 +2430,7 @@ MonoBehaviour:
   combatLookAt: {fileID: 1452358165}
   rotationSpeed: 30
   lookSensitivity: 2
-  currentStyle: 1
+  currentStyle: 0
 --- !u!1 &1404892269
 GameObject:
   m_ObjectHideFlags: 0
