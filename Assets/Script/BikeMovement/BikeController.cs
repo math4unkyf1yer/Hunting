@@ -36,8 +36,6 @@ public class BikeController : MonoBehaviour
 
     public bool cantCrash;
 
-    //script
-    private CameraSwitch cameraScript;
     private SpawnBikeBack spawnScript;
     private Shoot shootScript;
     public Animator playerAnimation;
@@ -54,7 +52,6 @@ public class BikeController : MonoBehaviour
         sphereRb.drag = 0.1f;  // Lower value makes it slide more
         sphereRb.angularDrag = 1f; // Keeps turning responsive
 
-        cameraScript = gameObject.GetComponent<CameraSwitch>();
         spawnScript = GameObject.Find("SaveSpawnPoint").GetComponent<SpawnBikeBack>();
         SaveSpawnPoint = GameObject.Find("SaveSpawnPoint").GetComponent<Transform>();
         speedText = GameObject.Find("SpeedText").GetComponent<TextMeshProUGUI>();
@@ -283,7 +280,7 @@ public class BikeController : MonoBehaviour
 
     void PerformBackflip()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isflipping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isflipping || Input.GetKeyDown(KeyCode.Joystick1Button0) && !isflipping)
         {
             StartCoroutine(trickRoutine());
         }

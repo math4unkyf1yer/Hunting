@@ -16,7 +16,6 @@ public class Shoot : MonoBehaviour
     private float sniperReload = 1.3f;
     private bool reloading;
     public LineRenderer shootLine;     // LineRenderer component to show the shot
-    public CameraSwitch cameraSwitchScript;
 
     public TextMeshProUGUI bulletText;
     private Shotgun shotgun;
@@ -31,7 +30,7 @@ public class Shoot : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
+        if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
         {
             bulletText.text = "0/" + amountOfBulletShown.ToString();
             gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);

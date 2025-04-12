@@ -11,14 +11,19 @@ public class AimCamera : MonoBehaviour
     public Transform combatLookAt;
 
     public float rotationSpeed;
+    public float lookSensitivity = 2f;
 
     public CameraStyle currentStyle;
+
+    private PlayerControlls controls;
+    private Vector2 lookInput;
     public enum CameraStyle
     {
         basic,
         Combat,
         TopDown
     }
+
 
     private void Start()
     {
@@ -32,22 +37,24 @@ public class AimCamera : MonoBehaviour
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
         
-
-        if(currentStyle == CameraStyle.basic)
+         if(currentStyle == CameraStyle.Combat)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-            Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            if (inputDir != Vector3.zero)
+             Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
+             orientation.forward = dirCombatLookAt.normalized;
+             PlayerObj.forward = dirCombatLookAt.normalized;
+
+            // EXTRA: Allow joystick to rotate the PlayerObj manually
+            float joystickX = Input.GetAxis("RightStickHorizontal");
+            float joystickY = Input.GetAxis("RightStickVertical");
+
+            Vector3 inputDir = new Vector3(joystickX, 0, joystickY).normalized;
+
+            if (inputDir.magnitude > 0.1f)
             {
-                PlayerObj.forward = Vector3.Slerp(PlayerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+                Vector3 rotatedDir = orientation.transform.TransformDirection(inputDir); // make it relative to camera
+                PlayerObj.forward = Vector3.Slerp(PlayerObj.forward, rotatedDir, Time.deltaTime * rotationSpeed);
             }
-        }else if(currentStyle == CameraStyle.Combat)
-        {
-            Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
-            orientation.forward = dirCombatLookAt.normalized;
-            PlayerObj.forward = dirCombatLookAt.normalized;
 
         }
     }
