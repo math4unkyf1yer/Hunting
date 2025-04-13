@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class AimCamera : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class AimCamera : MonoBehaviour
     public Transform combatLookAt;
     public CinemachineFreeLook freeLookCam;
 
+    private string lastControlScheme = "Mouse";
+    private float inputCheckDelay = 1f;
+    private float inputTimer = 0f;
+
+    //mouse camera
+    public GameObject thirdpersonMouse;
+    //xbox Camera
+    public GameObject thirdPersonXbox;
 
     public float rotationSpeed;
     public float lookSensitivity = 2f;
@@ -55,6 +64,45 @@ public class AimCamera : MonoBehaviour
             freeLookCam.m_XAxis.m_InputAxisName = "RightStickHorizontal";
             freeLookCam.m_YAxis.m_InputAxisName = "RightStickVertical";
         }*/
+    }
+    void Update()
+    {
+        var mouseMoved = Mouse.current != null && Mouse.current.delta.ReadValue().sqrMagnitude > 0.01f;
+        var gamepadUsed = Gamepad.current != null && (
+            Gamepad.current.leftStick.ReadValue().sqrMagnitude > 0.01f ||
+            Gamepad.current.rightStick.ReadValue().sqrMagnitude > 0.01f ||
+            Gamepad.current.buttonSouth.wasPressedThisFrame
+        );
+
+        if (mouseMoved)
+        {
+            SetCameraForMouse();
+        }
+        else if (gamepadUsed)
+        {
+            SetCameraForGamepad();
+        }
+
+        // Your existing camera style rotation logic can stay here...
+    }
+    private void SetCameraForMouse()
+    {
+        if (!thirdpersonMouse.activeSelf)
+        {
+            thirdpersonMouse.SetActive(true);
+            thirdPersonXbox.SetActive(false);
+            currentStyle = CameraStyle.Combat;
+        }
+    }
+
+    private void SetCameraForGamepad()
+    {
+        if (!thirdPersonXbox.activeSelf)
+        {
+            thirdPersonXbox.SetActive(true);
+            thirdpersonMouse.SetActive(false);
+            currentStyle = CameraStyle.basic;
+        }
     }
     private void FixedUpdate()
     {

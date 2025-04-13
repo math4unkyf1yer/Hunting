@@ -21,6 +21,7 @@ public class DeerAi : MonoBehaviour
     public float shinyChance = 0.3f;
     public string deerType = "Normal";
 
+    public Animator deerAnimation;
     void OnEnable()
     {
         GunBroadCast.OnGunshotFired += OnGunshotHeard;
@@ -65,6 +66,7 @@ public class DeerAi : MonoBehaviour
         {
             PatrolArea();
         }
+        UpdateAnimationState();
     }
 
     void PatrolArea()
@@ -116,6 +118,28 @@ public class DeerAi : MonoBehaviour
         Gizmos.color = isShiny ? Color.green : Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
         Gizmos.DrawWireSphere(transform.position, hearingRange);
+    }
+    void UpdateAnimationState()
+    {
+        if (agent.velocity.magnitude > 0.1f)
+        {
+            if (isRunningAway)
+            {
+                deerAnimation.SetBool("Running", true);
+                deerAnimation.SetBool("Walking", false);
+            }
+            else
+            {
+                deerAnimation.SetBool("Running", false);
+                deerAnimation.SetBool("Walking", true);
+            }
+        }
+        else
+        {
+            // Not moving
+            deerAnimation.SetBool("Running", false);
+            deerAnimation.SetBool("Walking", false);
+        }
     }
 }
 

@@ -13,6 +13,7 @@ public class BikeController : MonoBehaviour
     [Range(1,10)]
     public float brakeFactor;
     public float speedCheck;//use for if the bike blows up;
+    public bool inAir;
     private Quaternion initialHandleLocalRotation;
 
     //Spawn
@@ -342,11 +343,12 @@ public class BikeController : MonoBehaviour
     {
         if(Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
         {
+            inAir = false;
             return true;
         }
-        else { return false; }
+        else { inAir = true; return false; }
     }
-    void Gravity()
+    public void Gravity()
     {
         sphereRb.AddForce(gravity * Vector3.down, ForceMode.Acceleration);
     }

@@ -21,7 +21,6 @@ public class Shoot : MonoBehaviour
     public TextMeshProUGUI bulletText;
     private Shotgun shotgun;
     private GunBroadCast gunBroadcastScript;
-    public bool canShoot = true;
 
 
     void Start () {
