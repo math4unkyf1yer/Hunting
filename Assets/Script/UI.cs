@@ -23,6 +23,11 @@ public class UI : MonoBehaviour
     public GameObject SettingsPM;
     public GameObject quitButton;
 
+    public Shoot shootScript;
+
+    // For getting timer data to show in pause menu
+    public TimeScript timeScript;
+
     void Start() {
         Time.timeScale = 1;
     }
@@ -74,6 +79,7 @@ public class UI : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenu.SetActive(true);
+        shootScript.canShoot = false;
 
 
     }
@@ -83,6 +89,7 @@ public class UI : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseMenu.SetActive(false);
+        shootScript.canShoot = true;
     }
     public void LoadMenu() {
         SceneManager.LoadScene("MainMenu");

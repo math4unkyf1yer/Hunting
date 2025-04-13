@@ -20,6 +20,7 @@ public class Shoot : MonoBehaviour
     public TextMeshProUGUI bulletText;
     private Shotgun shotgun;
     private GunBroadCast gunBroadcastScript;
+    public bool canShoot = true;
 
 
     void Start () {
@@ -30,7 +31,7 @@ public class Shoot : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
+        if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 && canShoot == true || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0 && canShoot == true)  // Example: Left mouse click to shoot
         {
             bulletText.text = "0/" + amountOfBulletShown.ToString();
             gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
@@ -38,6 +39,17 @@ public class Shoot : MonoBehaviour
             ShootRaycast();
             StartCoroutine(waitForReload());
         }
+    }
+
+    private void FixedUpdate() {
+        // if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
+        // {
+        //     bulletText.text = "0/" + amountOfBulletShown.ToString();
+        //     gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
+        //     reloading = true;
+        //     ShootRaycast();
+        //     StartCoroutine(waitForReload());
+        // }
     }
     public void IncreaseAmmo(int bullet)
     {
@@ -135,5 +147,10 @@ public class Shoot : MonoBehaviour
         // Wait for 0.1 seconds before disabling the LineRenderer
         yield return new WaitForSeconds(0.5f);
         shootLine.enabled = false;
+    }
+
+    // Get number of bullets to show in pause menu
+    public string GetNumBullets() {
+        return bulletText.text;
     }
 }
