@@ -178,8 +178,8 @@ public class BikeController : MonoBehaviour
         moveInput = 0;
         steerInput = 0;
 
-        SaveSpawnPoint.position = spawnPosition.transform.position;
-        SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
+        SaveSpawnPoint.position = outsideMapSpawn.transform.position; 
+        SaveSpawnPoint.rotation = outsideMapSpawn.transform.rotation;
 
         playerAnimation.enabled = true;
         StartCoroutine(SpawnBack());
@@ -358,8 +358,8 @@ public class BikeController : MonoBehaviour
         if(speedCheck >= 130 && isdead == false)
         {
             isdead = true;
-            SaveSpawnPoint.position = spawnPosition.transform.position;
-            SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
+            SaveSpawnPoint.position = outsideMapSpawn.transform.position;
+            SaveSpawnPoint.rotation = outsideMapSpawn.transform.rotation;
             DestroyBike();
         }
     }
@@ -368,8 +368,8 @@ public class BikeController : MonoBehaviour
         if(isdead == false)
         {
             isdead = true;
-            SaveSpawnPoint.position = spawnPosition.transform.position;
-            SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
+            SaveSpawnPoint.position = outsideMapSpawn.transform.position;
+            SaveSpawnPoint.rotation = outsideMapSpawn.transform.rotation;
             DestroyBike();
         }
     }
