@@ -13,7 +13,7 @@ public class HitBox : MonoBehaviour
     {
         GameObject ak = GameObject.Find("Ak47Holder");
         shootScript = ak.gameObject.GetComponent<Shoot>();
-        spawnScript = GameObject.Find("Timer").GetComponent<SpawnScript>();
+        spawnScript = GameObject.Find("GameManager").GetComponent<SpawnScript>();
     }
 
     public void TakeDamage(int damage)

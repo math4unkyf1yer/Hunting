@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Enemy
   - EnemyHead
+  - Dead
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - BikeBody
   - Floor
   - Enemy
-  - 
+  - Dead
   - 
   - 
   - 

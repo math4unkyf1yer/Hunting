@@ -15,6 +15,7 @@ public class Shoot : MonoBehaviour
     private int amountOfBulletShown;
     private float sniperReload = 1.3f;
     private bool reloading;
+    public bool canShoot = true;
     public LineRenderer shootLine;     // LineRenderer component to show the shot
 
     public TextMeshProUGUI bulletText;
@@ -65,7 +66,7 @@ public class Shoot : MonoBehaviour
 
         // Check if you're in first or third person view
 
-        if(shotgun.isSniper == true) {
+        if(shotgun.isSniper == true && canShoot == true) {
             // Perform the raycast
             if (Physics.Raycast(gunStartPoint.position, shootDirection, out hit, gunRange, enemyLayer))
             {

@@ -9,14 +9,18 @@ public class BikeController : MonoBehaviour
     float moveInput, steerInput , rayLenght,rayLenghtUp, currentVelocityOffset;
     private TextMeshProUGUI speedText;
     public float maxSpeed, acceleration, steerStrenght, tiltAngle, gravity, bikeTiltIncrement = 0.09f, zTitlAngle = 45, hadleRotVal = 30f, handleRotSpeed = .15f;
+    public float airReturnSpeed = 2f;
     [Range(1,10)]
     public float brakeFactor;
     public float speedCheck;//use for if the bike blows up;
+    private Quaternion initialHandleLocalRotation;
 
     //Spawn
     public GameObject spawnPosition;
     private Transform SaveSpawnPoint;
+    public Transform outsideMapSpawn;
     public GameObject crashEffect;
+    public bool isdead;
 
     [HideInInspector] public Vector3 velocity2;
     public GameObject handle;
@@ -25,6 +29,7 @@ public class BikeController : MonoBehaviour
     public GameObject biketrickHolder;
 
     public LayerMask drivableLayer;
+    public LayerMask deadLayer;
 
     //increase speed for speed boost
     private bool isBoosting = false;
@@ -44,19 +49,32 @@ public class BikeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerAnimation.enabled = false; // Prevents any animation from playing
+        playerAnimation.enabled = false;
         cantCrash = true;
         Debug.developerConsoleVisible = true;
-        sphereRb.transform.parent = null;
-        bikeBody.transform.parent = null;
-        sphereRb.drag = 0.1f;  // Lower value makes it slide more
-        sphereRb.angularDrag = 1f; // Keeps turning responsive
+        initialHandleLocalRotation = handle.transform.localRotation;
 
-        spawnScript = GameObject.Find("SaveSpawnPoint").GetComponent<SpawnBikeBack>();
-        SaveSpawnPoint = GameObject.Find("SaveSpawnPoint").GetComponent<Transform>();
-        speedText = GameObject.Find("SpeedText").GetComponent<TextMeshProUGUI>();
-        shootScript = GameObject.Find("Ak47Holder").GetComponent<Shoot>();
+        // Detach rigidbodies from parent
+        if (sphereRb != null) sphereRb.transform.parent = null;
+        if (bikeBody != null) bikeBody.transform.parent = null;
+
+        sphereRb.drag = 0.1f;
+        sphereRb.angularDrag = 1f;
+
+        // Get components safely
+        spawnScript = GameObject.Find("SaveSpawnPoint")?.GetComponent<SpawnBikeBack>();
+        SaveSpawnPoint = GameObject.Find("SaveSpawnPoint")?.transform;
+
+        GameObject speedTextObj = GameObject.Find("SpeedText");
+        if (speedTextObj != null)
+            speedText = speedTextObj.GetComponent<TextMeshProUGUI>();
+
+        GameObject gun = GameObject.Find("Ak47Holder");
+        if (gun != null)
+            shootScript = gun.GetComponent<Shoot>();
+
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 4f;
+
         StartCoroutine(Immortal());
     }
 
@@ -78,12 +96,15 @@ public class BikeController : MonoBehaviour
         {
             PerformBackflip();
         }
+        if (Physics.Raycast(sphereRb.position, Vector3.down, out hit, rayLenght + 2, deadLayer))
+        {
+            outsideMap();
+        }
     }
 
     private void FixedUpdate()
     {      
         Movement();
-      //  Brake();
     }
 
     void Movement()
@@ -98,6 +119,7 @@ public class BikeController : MonoBehaviour
         else
         {
             Gravity();
+            BikeTiltAirborne();
         }
     }
     void Acceleration()
@@ -117,10 +139,11 @@ public class BikeController : MonoBehaviour
         if (OnSlope())
         {
             // Add force in the forward direction to push the bike uphill
-            sphereRb.AddForce(transform.forward * acceleration * 10f, ForceMode.Acceleration);
+            sphereRb.AddForce(transform.forward * acceleration * 20f, ForceMode.Acceleration);
         }
         else
         {
+            
             sphereRb.velocity = transform.forward * newSpeed;
         }
 
@@ -134,7 +157,7 @@ public class BikeController : MonoBehaviour
     {
         if (Grounded())
         {
-            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+           float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
             return slopeAngle > 5f && slopeAngle < 50f; // tweak range for what's considered a ramp
         }
         return false;
@@ -145,6 +168,7 @@ public class BikeController : MonoBehaviour
         if (isStalling) return;
 
         isStalling = true;
+        shootScript.canShoot = false;
 
         // Stop movement
         sphereRb.velocity = Vector3.zero;
@@ -164,6 +188,7 @@ public class BikeController : MonoBehaviour
         if(cantCrash == false)
         {
             // Stop movement
+            shootScript.canShoot = false;
             crashEffect.SetActive(true);
             bikeBody.gameObject.SetActive(false);
             StartCoroutine(SpawnBack());
@@ -197,6 +222,8 @@ public class BikeController : MonoBehaviour
         crashEffect.SetActive(false);
 
         isStalling = false;
+        isdead = false;
+        shootScript.canShoot = true;
         // Make bike invincible for a few seconds again
         StartCoroutine(Immortal());
     }
@@ -212,10 +239,10 @@ public class BikeController : MonoBehaviour
         float turnAmount = steerInput * steerStrenght * Time.fixedDeltaTime;
         transform.Rotate(0, turnAmount, 0, Space.World);
 
-        // Handle rotation to match steering input
+        Quaternion targetRot = initialHandleLocalRotation * Quaternion.Euler(0f, hadleRotVal * steerInput, 0f);
         handle.transform.localRotation = Quaternion.Slerp(
             handle.transform.localRotation,
-            Quaternion.Euler(handle.transform.localRotation.eulerAngles.x, hadleRotVal * steerInput, handle.transform.localRotation.eulerAngles.z),
+            targetRot,
             handleRotSpeed
         );
     }
@@ -234,6 +261,15 @@ public class BikeController : MonoBehaviour
         Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
         bikeBody.MoveRotation(newRotation);
 
+    }
+    void BikeTiltAirborne()
+    {
+        // Keep X rotation, reset Z rotation smoothly
+        float xRot = bikeBody.transform.eulerAngles.x;
+        float zRot = Mathf.LerpAngle(bikeBody.transform.eulerAngles.z, 0f, Time.fixedDeltaTime * 3f); // You can tweak speed
+
+        Quaternion newRotation = Quaternion.Euler(xRot, transform.eulerAngles.y, zRot);
+        bikeBody.MoveRotation(newRotation);
     }
     public void ActivateSpeedBoost(float boostAmount, float duration)
     {
@@ -288,6 +324,7 @@ public class BikeController : MonoBehaviour
     IEnumerator trickRoutine()
     {
         isflipping = true;
+        shootScript.canShoot = false;
         playerAnimation.enabled = true;
         playerAnimation.SetTrigger("Trick");
 
@@ -297,7 +334,7 @@ public class BikeController : MonoBehaviour
         isflipping = false;
         // Reward the player
         shootScript.IncreaseAmmo(1);
-
+        shootScript.canShoot = true;
         // Reset
     }
 
@@ -316,8 +353,9 @@ public class BikeController : MonoBehaviour
 
     public void CheckCollision()
     {
-        if(speedCheck >= 160)
+        if(speedCheck >= 130 && isdead == false)
         {
+            isdead = true;
             SaveSpawnPoint.position = spawnPosition.transform.position;
             SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
             DestroyBike();
@@ -325,9 +363,23 @@ public class BikeController : MonoBehaviour
     }
     public void FlyCrash()
     {
-        SaveSpawnPoint.position = spawnPosition.transform.position;
-        SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
-        DestroyBike();
+        if(isdead == false)
+        {
+            isdead = true;
+            SaveSpawnPoint.position = spawnPosition.transform.position;
+            SaveSpawnPoint.rotation = spawnPosition.transform.rotation;
+            DestroyBike();
+        }
+    }
+    private void outsideMap()
+    {
+        if(isdead == false)
+        {
+            isdead = true;
+            SaveSpawnPoint.position = outsideMapSpawn.transform.position;
+            SaveSpawnPoint.rotation = outsideMapSpawn.transform.rotation;
+            DestroyBike();
+        }
     }
 
 }

@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -318.7
+      value: -40.062744
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 264.9
+      value: -41.6886
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 324.6
+      value: 18.385712
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -64,8 +64,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: rockS_PF
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1715497448973534298}
   m_SourcePrefab: {fileID: 100100000, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
+--- !u!1 &1715316441043075470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bb6e0f3aa34c61e4ab42a85448eb1e8e, type: 3}
+  m_PrefabInstance: {fileID: 1949899101786062047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1715497448973534298
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715316441043075470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

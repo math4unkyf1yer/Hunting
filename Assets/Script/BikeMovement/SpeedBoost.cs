@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpeedBoost : MonoBehaviour
 {
-    public float boostAmount = 200f; // How much speed to add
-    public float boostDuration = 2f; // How long the boost lasts
+    public float boostAmount = 70f; // How much speed to add
+    public float boostDuration = 1f; // How long the boost lasts
 
     private void OnTriggerEnter(Collider other)
     {

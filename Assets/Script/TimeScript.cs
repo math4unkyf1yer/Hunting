@@ -10,6 +10,8 @@ public class TimeScript : MonoBehaviour
     private float timeRemaining;
     public TextMeshProUGUI timerText;
 
+    public int deerCount;
+
     void Start()
     {
         timeRemaining = timer;
@@ -24,6 +26,14 @@ public class TimeScript : MonoBehaviour
         }
         else if (timeRemaining <= 0)
         {
+            if(deerCount>= 4)
+            {
+                //you win
+            }
+            else
+            {
+                //you lose 
+            }
             SceneManager.LoadScene(0);
         }
     }
