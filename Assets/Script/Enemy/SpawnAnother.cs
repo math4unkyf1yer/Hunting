@@ -6,14 +6,13 @@ public class SpawnScript : MonoBehaviour
 
 {
     public int isAlive = 2;
-    public GameObject Deer;
     private TimeScript timeScript;
+    public GameObject Deer;
 
-    private void Start()
-    {
+
+    void Start() {
         timeScript = GetComponent<TimeScript>();
     }
-
     void Update()
     {
         if (isAlive <= 1)
@@ -24,8 +23,8 @@ public class SpawnScript : MonoBehaviour
     void SpawnAnother()
     {
         timeScript.deerCount++;
-        float x = Random.Range(-944, 382);
-        float z = Random.Range(-201, 647);
+        float x = Random.Range(-947, 593);
+        float z = Random.Range(-412, 1030);
         Vector3 DeerSpawnPosition = new Vector3(x, 0, z);
         isAlive += 1;
         GameObject Deerclone = Instantiate(Deer, DeerSpawnPosition, Deer.transform.rotation);
