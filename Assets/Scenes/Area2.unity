@@ -9879,7 +9879,7 @@ MonoBehaviour:
   combatLookAt: {fileID: 1094269151}
   freeLookCam: {fileID: 1728968984}
   thirdpersonMouse: {fileID: 1510222293}
-  thirdPersonXbox: {fileID: 0}
+  thirdPersonXbox: {fileID: 1728968982}
   rotationSpeed: 30
   lookSensitivity: 2
   currentStyle: 1
