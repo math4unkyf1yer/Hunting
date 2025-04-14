@@ -540,9 +540,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 217452176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 560, y: 314}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -98, y: -138}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54833230
@@ -2124,9 +2124,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 217452176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -524, y: -338}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 136, y: 112}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319937780
@@ -6216,6 +6216,8 @@ MonoBehaviour:
   ExitButton: {fileID: 0}
   Settings: {fileID: 0}
   MainMenu: {fileID: 0}
+  controlMenu: {fileID: 0}
+  backButton: {fileID: 854986055}
   pauseMenu: {fileID: 572387945}
   ContinueButton: {fileID: 1043865613}
   SettingsPM: {fileID: 2131640637}
@@ -9879,7 +9881,7 @@ MonoBehaviour:
   combatLookAt: {fileID: 1094269151}
   freeLookCam: {fileID: 1728968984}
   thirdpersonMouse: {fileID: 1510222293}
-  thirdPersonXbox: {fileID: 0}
+  thirdPersonXbox: {fileID: 1728968982}
   rotationSpeed: 30
   lookSensitivity: 2
   currentStyle: 1
@@ -10241,9 +10243,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 217452176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 634, y: -338}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -113, y: 114}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439753635
@@ -11112,7 +11114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586780635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0012789577, y: 0.048890777, z: -0.00006260416, w: 0.9988033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13392,7 +13394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1043865613}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1826108738
