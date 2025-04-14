@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 67f951b3deb9c5241b41b5ec075e2286, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 000c0dc7f06b0df4ba8acb89619bc58b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 67f951b3deb9c5241b41b5ec075e2286, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0fdda33f80bab745ac503c2ab8aac4a, type: 2}
     - target: {fileID: 919132149155446097, guid: 67f951b3deb9c5241b41b5ec075e2286, type: 3}
       propertyPath: m_Name
       value: Cones

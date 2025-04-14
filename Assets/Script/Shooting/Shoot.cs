@@ -22,12 +22,22 @@ public class Shoot : MonoBehaviour
     private Shotgun shotgun;
     private GunBroadCast gunBroadcastScript;
 
+    public AudioClip sniperShoot;       //Audio for Sniper
+    public AudioClip shotgunShoot;       //Audio for Shotgun
+    public AudioClip gunEmpty;       //Audio for Shotgun
+    public AudioSource gunSource;       //AudioSource of the gun
+
+
 
     void Start () {
         shotgun = GetComponent<Shotgun>();
         amountOfBulletShown = amountOfBullet - 1;
         bulletText.text = "1/" + amountOfBulletShown.ToString();
         gunBroadcastScript = GetComponent<GunBroadCast>();
+
+        //Define AudioSource
+        gunSource = GetComponent<AudioSource>();
+
     }
     private void Update()
     {
@@ -38,6 +48,13 @@ public class Shoot : MonoBehaviour
             reloading = true;
             ShootRaycast();
             StartCoroutine(waitForReload());
+        }
+        else if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet <= 0 && canShoot == true || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet <= 0 && canShoot == true)
+        {
+            //Gun is empty
+            gunSource.clip = gunEmpty;
+            gunSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
+            gunSource.Play();
         }
     }
 
@@ -56,6 +73,7 @@ public class Shoot : MonoBehaviour
         amountOfBullet += bullet;
         amountOfBulletShown = amountOfBullet - 1;
         bulletText.text = "1/" + amountOfBulletShown.ToString();
+
     }
 
     IEnumerator waitForReload()
@@ -79,6 +97,12 @@ public class Shoot : MonoBehaviour
 
         if(shotgun.isSniper == true && canShoot == true) {
             // Perform the raycast
+
+            //Play Audio for Sniper
+            gunSource.clip = sniperShoot;
+            gunSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
+            gunSource.Play();
+
             if (Physics.Raycast(gunStartPoint.position, shootDirection, out hit, gunRange, enemyLayer))
             {
                 Debug.Log("Hit " + hit.collider.tag);
@@ -86,6 +110,8 @@ public class Shoot : MonoBehaviour
                 // Show the line from the gun to the hit point
                 shootLine.SetPosition(0, gunStartPoint.position);
                 shootLine.SetPosition(1, hit.point); // Set the end point at the hit location
+
+                
 
                 if (hit.collider.tag == "Enemy")
                 {
