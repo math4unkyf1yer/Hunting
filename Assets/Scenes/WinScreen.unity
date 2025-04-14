@@ -460,6 +460,8 @@ MonoBehaviour:
   ExitButton: {fileID: 0}
   Settings: {fileID: 0}
   MainMenu: {fileID: 0}
+  controlMenu: {fileID: 0}
+  backButton: {fileID: 0}
   pauseMenu: {fileID: 0}
   ContinueButton: {fileID: 0}
   SettingsPM: {fileID: 0}
@@ -724,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 435077327}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1069053242
