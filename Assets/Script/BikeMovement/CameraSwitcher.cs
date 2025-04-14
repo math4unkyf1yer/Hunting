@@ -45,7 +45,6 @@ public class CameraSwitcher : MonoBehaviour
 
     private void CameraSwitch() {
 
-            fpsCam.Priority = 0;
         // if (Input.GetMouseButtonDown(1)) // Right-click pressed
         // {
         //     float freeLookHorizontal = tpsCam.m_XAxis.Value;
