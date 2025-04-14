@@ -86,13 +86,7 @@ public class BikeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Movement() && !isStalling)
-        {
-            if (!1dleAudio.isPlaying)
-            {
-                idleAudio.Play();
-            }
-        }
+       
 
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
