@@ -46,6 +46,10 @@ public class BikeController : MonoBehaviour
     private Shoot shootScript;
     public Animator playerAnimation;
 
+    //Audio Setup
+    public AudioSource trickAudio;
+    public AudioSource crashAudio;
+    public AudioSource idleAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +86,14 @@ public class BikeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Movement() && !isStalling)
+        {
+            if (!1dleAudio.isPlaying)
+            {
+                idleAudio.Play();
+            }
+        }
+
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
        
@@ -192,6 +204,7 @@ public class BikeController : MonoBehaviour
             shootScript.canShoot = false;
             crashEffect.SetActive(true);
             bikeBody.gameObject.SetActive(false);
+            crashAudio.Play();
             StartCoroutine(SpawnBack());
         }
     }
@@ -335,6 +348,8 @@ public class BikeController : MonoBehaviour
         isflipping = false;
         // Reward the player
         shootScript.IncreaseAmmo(1);
+        trickAudio.pitch = UnityEngine.Random.Range(0.8f, 1.3f);    //Temporary
+        trickAudio.Play();
         shootScript.canShoot = true;
         // Reset
     }
