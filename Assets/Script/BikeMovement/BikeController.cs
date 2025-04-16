@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -247,7 +247,12 @@ public class BikeController : MonoBehaviour
         float turnAmount = steerInput * steerStrenght * Time.fixedDeltaTime;
         transform.Rotate(0, turnAmount, 0, Space.World);
 
-        Quaternion targetRot = initialHandleLocalRotation * Quaternion.Euler(0f, hadleRotVal * steerInput, 0f);
+        // Rotation around Z simulating lean during steering
+        Quaternion steer = Quaternion.Euler(0f, 0f, hadleRotVal * steerInput);
+
+        // Combine in this specific order: baseline → steer → tilt
+        Quaternion targetRot = initialHandleLocalRotation * steer;
+
         handle.transform.localRotation = Quaternion.Slerp(
             handle.transform.localRotation,
             targetRot,

@@ -10478,10 +10478,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 991067121}
   player: {fileID: 326954481}
+  bike: {fileID: 1491008501}
+  maxAngle: 100
   PlayerObj: {fileID: 1012163772}
   rb: {fileID: 0}
   combatLookAt: {fileID: 1094269151}
   freeLookCam: {fileID: 1728968984}
+  freeLookCamMouse: {fileID: 1510222294}
   thirdpersonMouse: {fileID: 1510222293}
   thirdPersonXbox: {fileID: 1728968982}
   rotationSpeed: 30
@@ -11000,9 +11003,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: gravity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: outsideMapSpawn
       value: 
       objectReference: {fileID: 764878279}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70735973
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00030224596
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7068536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00030246237
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.959
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943532894351630666, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.049
+      objectReference: {fileID: 0}
     - target: {fileID: 4282546673187195881, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.546454
@@ -11559,6 +11594,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7350681844599863932, guid: 705d7cd608372eb4bbfd158705419273, type: 3}
   m_PrefabInstance: {fileID: 1473243372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1491008501 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5476513726412111826, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+  m_PrefabInstance: {fileID: 1448903065}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1510222293
 GameObject:

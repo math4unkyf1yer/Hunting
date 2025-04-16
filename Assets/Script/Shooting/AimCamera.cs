@@ -8,10 +8,14 @@ public class AimCamera : MonoBehaviour
 {
     public Transform orientation;
     public Transform player;
+    public Transform bike;
+    public float maxAngle = 90f;
+    private float lastValidX;
     public Transform PlayerObj;
     public Rigidbody rb;
     public Transform combatLookAt;
     public CinemachineFreeLook freeLookCam;
+    public CinemachineFreeLook freeLookCamMouse;
 
     private string lastControlScheme = "Mouse";
     private float inputCheckDelay = 1f;
@@ -54,16 +58,16 @@ public class AimCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-      /*  if(currentStyle == CameraStyle.Combat)
-        {
-            freeLookCam.m_XAxis.m_InputAxisName = "Mouse X";
-            freeLookCam.m_YAxis.m_InputAxisName = "Mouse Y";
-        }
-        else
-        {
-            freeLookCam.m_XAxis.m_InputAxisName = "RightStickHorizontal";
-            freeLookCam.m_YAxis.m_InputAxisName = "RightStickVertical";
-        }*/
+        /*  if(currentStyle == CameraStyle.Combat)
+          {
+              freeLookCam.m_XAxis.m_InputAxisName = "Mouse X";
+              freeLookCam.m_YAxis.m_InputAxisName = "Mouse Y";
+          }
+          else
+          {
+              freeLookCam.m_XAxis.m_InputAxisName = "RightStickHorizontal";
+              freeLookCam.m_YAxis.m_InputAxisName = "RightStickVertical";
+          }*/
     }
     void Update()
     {
@@ -104,6 +108,7 @@ public class AimCamera : MonoBehaviour
             currentStyle = CameraStyle.basic;
         }
     }
+
     private void FixedUpdate()
     {
         if (player == null || PlayerObj == null || orientation == null)
@@ -116,10 +121,10 @@ public class AimCamera : MonoBehaviour
             orientation.forward = viewDir.normalized;
 
             Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
-             orientation.forward = dirCombatLookAt.normalized;
-             PlayerObj.forward = dirCombatLookAt.normalized;        
+            orientation.forward = dirCombatLookAt.normalized;
+            PlayerObj.forward = dirCombatLookAt.normalized;
         }
-        if(currentStyle == CameraStyle.basic)
+        if (currentStyle == CameraStyle.basic)
         {
             // Align orientation to camera forward on XZ plane
             orientation.forward = Vector3.ProjectOnPlane(freeLookCam.transform.forward, Vector3.up).normalized;
@@ -133,5 +138,37 @@ public class AimCamera : MonoBehaviour
             }
 
         }
+    }
+
+    private void LateUpdate()
+    {
+        if (bike == null || freeLookCamMouse == null)
+            return;
+
+        // Calculate current direction from bike to camera
+        Vector3 camDir = bike.position - freeLookCamMouse.State.FinalPosition;
+        camDir.y = 0;
+        camDir.Normalize();
+
+        Vector3 bikeForward = bike.forward;
+        bikeForward.y = 0;
+        bikeForward.Normalize();
+
+        float angle = Vector3.SignedAngle(bikeForward, camDir, Vector3.up);
+
+        if (Mathf.Abs(angle) > maxAngle)
+        {
+            float clampedAngle = Mathf.Clamp(angle, -maxAngle, maxAngle);
+            float delta = clampedAngle - angle;
+
+            // Translate that angle correction into XAxis value correction
+            // This is tricky because m_XAxis.Value is in degrees but may wrap, so we use delta time smoothing
+            freeLookCamMouse.m_XAxis.Value += delta * Time.deltaTime * 5f; // smooth correction
+        }
+        else
+        {
+            lastValidX = freeLookCamMouse.m_XAxis.Value; // store current if valid
+        }
+
     }
 }
