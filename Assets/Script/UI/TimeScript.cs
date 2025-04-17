@@ -24,7 +24,7 @@ public class TimeScript : MonoBehaviour
 
     void Update()
     {
-        deerDefeated.text = "deer defeated" + deerCount + "/4".ToString();
+        deerDefeated.text = deerCount + "/4".ToString();
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;

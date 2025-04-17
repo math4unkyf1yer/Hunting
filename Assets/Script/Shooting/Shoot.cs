@@ -43,7 +43,8 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 && canShoot == true || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0 && canShoot == true)  // Example: Left mouse click to shoot
         {
-            bulletText.text = "0/" + amountOfBulletShown.ToString();
+            // bulletText.text = "0/" + amountOfBulletShown.ToString();
+            bulletText.text = amountOfBulletShown.ToString();
             gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
             reloading = true;
             ShootRaycast();
@@ -72,7 +73,8 @@ public class Shoot : MonoBehaviour
     {
         amountOfBullet += bullet;
         amountOfBulletShown = amountOfBullet - 1;
-        bulletText.text = "1/" + amountOfBulletShown.ToString();
+        // bulletText.text = "1/" + amountOfBulletShown.ToString();
+        bulletText.text = amountOfBulletShown.ToString();
 
     }
 
@@ -81,7 +83,7 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(sniperReload);
         amountOfBullet -= 1;
         amountOfBulletShown = amountOfBullet - 1;
-        bulletText.text = "1/" + amountOfBulletShown.ToString();
+        bulletText.text = amountOfBulletShown.ToString();
         reloading = false;
     }
 
