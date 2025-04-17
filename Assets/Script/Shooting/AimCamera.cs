@@ -9,6 +9,8 @@ public class AimCamera : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform bike;
+    public Transform playerBody;
+    public Transform shoulderNotMoving;
     public float maxAngle = 90f;
     private float lastValidX;
     public Transform PlayerObj;
@@ -58,16 +60,6 @@ public class AimCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        /*  if(currentStyle == CameraStyle.Combat)
-          {
-              freeLookCam.m_XAxis.m_InputAxisName = "Mouse X";
-              freeLookCam.m_YAxis.m_InputAxisName = "Mouse Y";
-          }
-          else
-          {
-              freeLookCam.m_XAxis.m_InputAxisName = "RightStickHorizontal";
-              freeLookCam.m_YAxis.m_InputAxisName = "RightStickVertical";
-          }*/
     }
     void Update()
     {
@@ -114,7 +106,6 @@ public class AimCamera : MonoBehaviour
         if (player == null || PlayerObj == null || orientation == null)
             return; // Skip update if references are missing
 
-        lookInput = controls.Movement.look.ReadValue<Vector2>();
         if (currentStyle == CameraStyle.Combat)
         {
             Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
@@ -123,30 +114,36 @@ public class AimCamera : MonoBehaviour
             Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
             orientation.forward = dirCombatLookAt.normalized;
             PlayerObj.forward = dirCombatLookAt.normalized;
+            playerBody.forward = dirCombatLookAt.normalized;
         }
         if (currentStyle == CameraStyle.basic)
         {
-            // Align orientation to camera forward on XZ plane
-            orientation.forward = Vector3.ProjectOnPlane(freeLookCam.transform.forward, Vector3.up).normalized;
 
-            Vector3 inputDir = new Vector3(lookInput.x, 0, lookInput.y).normalized;
-            Vector3 rotatedDir = orientation.transform.TransformDirection(inputDir); // relative to camera
+            Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+            orientation.forward = viewDir.normalized;
 
-            if (inputDir.magnitude >= 0.1f)
-            {
-                PlayerObj.forward = Vector3.Slerp(PlayerObj.forward, rotatedDir, Time.deltaTime * rotationSpeed);
-            }
-
+            Vector3 dirCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
+            orientation.forward = dirCombatLookAt.normalized;
+            PlayerObj.forward = dirCombatLookAt.normalized;
+            playerBody.forward = dirCombatLookAt.normalized;
         }
     }
 
     private void LateUpdate()
     {
-        if (bike == null || freeLookCamMouse == null)
+        if (bike == null)
+            return;
+
+        // Which camera are we using?
+        CinemachineFreeLook activeCam = currentStyle == CameraStyle.Combat && thirdPersonXbox.activeSelf
+            ? freeLookCam
+            : freeLookCamMouse;
+
+        if (activeCam == null)
             return;
 
         // Calculate current direction from bike to camera
-        Vector3 camDir = bike.position - freeLookCamMouse.State.FinalPosition;
+        Vector3 camDir = bike.position - activeCam.State.FinalPosition;
         camDir.y = 0;
         camDir.Normalize();
 
@@ -162,12 +159,11 @@ public class AimCamera : MonoBehaviour
             float delta = clampedAngle - angle;
 
             // Translate that angle correction into XAxis value correction
-            // This is tricky because m_XAxis.Value is in degrees but may wrap, so we use delta time smoothing
-            freeLookCamMouse.m_XAxis.Value += delta * Time.deltaTime * 5f; // smooth correction
+            activeCam.m_XAxis.Value += delta * Time.deltaTime * 5f; // smooth correction
         }
         else
         {
-            lastValidX = freeLookCamMouse.m_XAxis.Value; // store current if valid
+            lastValidX = activeCam.m_XAxis.Value; // store current if valid
         }
 
     }

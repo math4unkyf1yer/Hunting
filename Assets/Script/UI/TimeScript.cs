@@ -11,6 +11,7 @@ public class TimeScript : MonoBehaviour
     private float timeRemaining;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI deerDefeated;
+    public Transform[] ASDJSAD;
 
     private int minutes;
     private int seconds;

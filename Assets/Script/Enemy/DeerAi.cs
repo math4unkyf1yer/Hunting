@@ -21,6 +21,10 @@ public class DeerAi : MonoBehaviour
     public float shinyChance = 0.3f;
     public string deerType = "Normal";
 
+    public GameObject body;
+    public Material shinyGold;
+    
+
     public Animator deerAnimation;
     void OnEnable()
     {
@@ -102,6 +106,13 @@ public class DeerAi : MonoBehaviour
     {
         if (Random.Range(0f, 1f) <= shinyChance)
         {
+            Renderer bodyRenderer = GetComponentInChildren<Renderer>();
+
+            if (bodyRenderer != null)
+            {
+                // Access material, transform, etc.
+                bodyRenderer.material = shinyGold;
+            }
             isShiny = true;
             deerType = "Shiny";
             Debug.Log("A shiny deer has spawned!");

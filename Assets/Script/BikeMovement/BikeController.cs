@@ -46,6 +46,12 @@ public class BikeController : MonoBehaviour
     private Shoot shootScript;
     public Animator playerAnimation;
 
+    //Material
+    public Material oldMat;
+    public Material newMat;
+    public GameObject playerObj;
+    private Renderer playerObjMaterial;
+
     //Audio Setup
     public AudioSource trickAudio;
     public AudioSource crashAudio;
@@ -79,15 +85,16 @@ public class BikeController : MonoBehaviour
             shootScript = gun.GetComponent<Shoot>();
 
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 4f;
+        playerObjMaterial = playerObj.GetComponent<Renderer>();
 
+        playerObjMaterial.material = newMat;
         StartCoroutine(Immortal());
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-
+      
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
        
@@ -196,6 +203,8 @@ public class BikeController : MonoBehaviour
         {
             // Stop movement
             shootScript.canShoot = false;
+            shootScript.HideShootLineDead();
+            shootScript.waitForRealoadDead();
             crashEffect.SetActive(true);
             bikeBody.gameObject.SetActive(false);
             crashAudio.Play();
@@ -206,6 +215,7 @@ public class BikeController : MonoBehaviour
     {
         playerAnimation.SetTrigger("Falling");
         yield return new WaitForSeconds(2f);
+        playerObjMaterial.material = newMat;
         playerAnimation.enabled = false;
         // Reset position and rotation
         cantCrash = true;
@@ -238,6 +248,7 @@ public class BikeController : MonoBehaviour
     IEnumerator Immortal()
     {
         yield return new WaitForSeconds(7f);
+        playerObjMaterial.material = oldMat;
         cantCrash = false;
     }
 
@@ -273,7 +284,6 @@ public class BikeController : MonoBehaviour
 
         Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
         bikeBody.MoveRotation(newRotation);
-
     }
     void BikeTiltAirborne()
     {
@@ -329,7 +339,7 @@ public class BikeController : MonoBehaviour
 
     void PerformBackflip()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isflipping || Input.GetKeyDown(KeyCode.Joystick1Button0) && !isflipping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isflipping || Input.GetKeyDown(KeyCode.Joystick1Button0)&& !isflipping)
         {
             StartCoroutine(trickRoutine());
         }

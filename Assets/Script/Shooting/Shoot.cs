@@ -8,6 +8,10 @@ public class Shoot : MonoBehaviour
     public LayerMask enemyLayer;
     public Transform cameraTransform;  // Reference to the player's camera
     public Transform gunStartPoint;    // Where the gun is located
+    public GameObject head;
+    public GameObject forearm;
+    public Transform lookatHead;
+    public Transform lookAtWeapon;
     public int gunRange = 100;         // Range of the gun
     public int bodyDamage = 1;
     public int headDamage = 2;
@@ -41,6 +45,9 @@ public class Shoot : MonoBehaviour
     }
     private void Update()
     {
+       
+        head.transform.LookAt(lookatHead);
+        
         if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 && canShoot == true || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0 && canShoot == true)  // Example: Left mouse click to shoot
         {
             bulletText.text = "0/" + amountOfBulletShown.ToString();
@@ -58,16 +65,6 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() {
-        // if (Input.GetMouseButtonDown(0) && reloading == false && amountOfBullet > 0 || Input.GetAxis("RT") > 0.1f && reloading == false && amountOfBullet > 0)  // Example: Left mouse click to shoot
-        // {
-        //     bulletText.text = "0/" + amountOfBulletShown.ToString();
-        //     gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
-        //     reloading = true;
-        //     ShootRaycast();
-        //     StartCoroutine(waitForReload());
-        // }
-    }
     public void IncreaseAmmo(int bullet)
     {
         amountOfBullet += bullet;
@@ -79,6 +76,13 @@ public class Shoot : MonoBehaviour
     IEnumerator waitForReload()
     {
         yield return new WaitForSeconds(sniperReload);
+        amountOfBullet -= 1;
+        amountOfBulletShown = amountOfBullet - 1;
+        bulletText.text = "1/" + amountOfBulletShown.ToString();
+        reloading = false;
+    }
+    public void waitForRealoadDead()
+    {
         amountOfBullet -= 1;
         amountOfBulletShown = amountOfBullet - 1;
         bulletText.text = "1/" + amountOfBulletShown.ToString();
@@ -172,6 +176,10 @@ public class Shoot : MonoBehaviour
     {
         // Wait for 0.1 seconds before disabling the LineRenderer
         yield return new WaitForSeconds(0.5f);
+        shootLine.enabled = false;
+    }
+    public void HideShootLineDead()
+    {
         shootLine.enabled = false;
     }
 
