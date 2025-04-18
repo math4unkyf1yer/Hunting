@@ -5699,7 +5699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 957, y: 67}
+  m_AnchoredPosition: {x: 363, y: 49}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819838850
@@ -5749,8 +5749,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0
-  m_fontSizeBase: 0
+  m_fontSize: 25.14
+  m_fontSizeBase: 25.14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11049,23 +11049,31 @@ PrefabInstance:
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: newMat
       value: 
-      objectReference: {fileID: 2100000, guid: de1d0ac94d11fc847b5d01933a4e02cb, type: 2}
+      objectReference: {fileID: 2100000, guid: 9a87da9f16fec8b4283401dbce703c45, type: 2}
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: oldMat
       value: 
-      objectReference: {fileID: 2100000, guid: 8306fc639b1e1344cb3d50215c9d3d82, type: 2}
+      objectReference: {fileID: 2100000, guid: dd74102921caf6f49b75defd809b84f7, type: 2}
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: gravity
-      value: 100
+      value: 320.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: maxSpeed
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: playerObj
       value: 
       objectReference: {fileID: 1427299584}
+    - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: acceleration
+      value: 43.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1889792506134182914, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: outsideMapSpawn
       value: 
@@ -16029,9 +16037,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1625891715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -66, y: -38}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -66, y: 12}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959155363
