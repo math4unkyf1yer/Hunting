@@ -25,8 +25,8 @@ public class SpawnScript : MonoBehaviour
     void SpawnAnother()
     {
         timeScript.deerCount++;
-        float x = Random.Range(-800, 500);
-        float z = Random.Range(-312, 900);
+        float x = Random.Range(-700, 270);
+        float z = Random.Range(-212, 690);
         Vector3 DeerSpawnPosition = new Vector3(x, 0, z);
         isAlive += 1;
         GameObject Deerclone = Instantiate(Deer, DeerSpawnPosition, Deer.transform.rotation);
