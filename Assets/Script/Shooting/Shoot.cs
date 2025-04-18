@@ -17,7 +17,7 @@ public class Shoot : MonoBehaviour
     public int headDamage = 2;
     public int amountOfBullet;
     private int amountOfBulletShown;
-    private float sniperReload = 1.3f;
+    private float sniperReload = 1f;
     private bool reloading;
     public bool canShoot = true;
     public LineRenderer shootLine;     // LineRenderer component to show the shot
@@ -29,6 +29,7 @@ public class Shoot : MonoBehaviour
     public AudioClip sniperShoot;       //Audio for Sniper
     public AudioClip shotgunShoot;       //Audio for Shotgun
     public AudioClip gunEmpty;       //Audio for Shotgun
+    public AudioClip gunReload;       //Audio for Shotgun
     public AudioSource gunSource;       //AudioSource of the gun
 
 
@@ -64,6 +65,12 @@ public class Shoot : MonoBehaviour
             gunSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
             gunSource.Play();
         }
+
+        if (amountOfBullet < 0)
+        {
+            amountOfBullet = 0;
+            amountOfBulletShown = 0;
+        }
     }
 
     public void IncreaseAmmo(int bullet)
@@ -82,6 +89,11 @@ public class Shoot : MonoBehaviour
         amountOfBulletShown = amountOfBullet - 1;
         bulletText.text = amountOfBulletShown.ToString();
         reloading = false;
+
+        gunSource.clip = gunReload;
+        gunSource.pitch = 1.0f;
+        gunSource.Play();
+
     }
     public void waitForRealoadDead()
     {

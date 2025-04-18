@@ -56,6 +56,7 @@ public class BikeController : MonoBehaviour
     public AudioSource trickAudio;
     public AudioSource crashAudio;
     public AudioSource idleAudio;
+    public AudioSource fallAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -196,6 +197,13 @@ public class BikeController : MonoBehaviour
 
         playerAnimation.enabled = true;
         StartCoroutine(SpawnBack());
+
+        if (!fallAudio.isPlaying)
+        {
+            fallAudio.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
+            fallAudio.Play();
+        }
+
     }
     void DestroyBike()
     {
@@ -281,6 +289,7 @@ public class BikeController : MonoBehaviour
             Quaternion.Euler(xRot, transform.eulerAngles.y, zRot),
             bikeTiltIncrement
         );
+        
 
         Quaternion newRotation = Quaternion.Euler(targetRot.eulerAngles.x, transform.eulerAngles.y, targetRot.eulerAngles.z);
         bikeBody.MoveRotation(newRotation);
