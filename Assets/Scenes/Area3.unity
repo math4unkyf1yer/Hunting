@@ -1259,6 +1259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 120
   timerText: {fileID: 2116320107}
+  deerDefeated: {fileID: 0}
+  deerCount: 0
 --- !u!4 &130758377
 Transform:
   m_ObjectHideFlags: 0
@@ -1686,7 +1688,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 9967ad0fa789bd04fbdce4cb6c839823, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!136 &186844487
 CapsuleCollider:
@@ -3410,10 +3412,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 1267887456}
   player: {fileID: 212419374}
+  bike: {fileID: 0}
+  maxAngle: 90
   PlayerObj: {fileID: 372291704}
   rb: {fileID: 0}
   combatLookAt: {fileID: 607602795}
+  freeLookCam: {fileID: 0}
+  freeLookCamMouse: {fileID: 0}
+  thirdpersonMouse: {fileID: 0}
+  thirdPersonXbox: {fileID: 0}
   rotationSpeed: 7
+  lookSensitivity: 2
   currentStyle: 1
 --- !u!114 &349568355
 MonoBehaviour:
@@ -4071,7 +4080,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 33616e2e7a39d624a877f8d28cff8356, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1001 &442019143
 PrefabInstance:
@@ -4167,7 +4176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445440610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0015319895, y: -0.20301159, z: 0.00031762614, w: 0.9791751}
+  m_LocalRotation: {x: 0.0015321653, y: -0.20301159, z: 0.0003176626, w: 0.9791751}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4771,7 +4780,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: e70a2c9f086044c4eb6c536412fe5263, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!136 &514622031
 CapsuleCollider:
@@ -7316,7 +7325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975185717}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.066536374, y: -0.20254259, z: -0.0137949325, w: 0.9769131}
+  m_LocalRotation: {x: -0.066536196, y: -0.20254259, z: -0.013794896, w: 0.9769131}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8128,7 +8137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104362693}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03268741, y: -0.20289868, z: -0.0067770546, w: 0.97863054}
+  m_LocalRotation: {x: -0.032687236, y: -0.20289868, z: -0.0067770183, w: 0.97863054}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10839,7 +10848,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: fc8a6294e54d6624a859eb0e822e141e, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1001 &1536086653
 PrefabInstance:
@@ -11287,7 +11296,7 @@ Transform:
   m_GameObject: {fileID: 1600317259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -275.27383, y: 197.2106, z: 324.5656}
+  m_LocalPosition: {x: -275.27383, y: 164.9, z: 324.5656}
   m_LocalScale: {x: 1120.012, y: 1120.012, z: 1120.012}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11322,7 +11331,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: b6e55f115665f174abd88aa926779ea0, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1001 &1609304107
 PrefabInstance:
@@ -11922,7 +11931,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: d01544e93c0cd304d9074a9b23ca8f67, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1001 &1676429549
 PrefabInstance:
