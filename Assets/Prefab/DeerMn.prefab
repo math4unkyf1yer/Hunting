@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   refillAmount: 2
-  isAdeer: 0
+  isAdeer: 1
   isABird: 0
   deerSource: {fileID: 0}
   hurtAudio: {fileID: 8300000, guid: d8f7f42f9988db441959963587a7fffb, type: 3}

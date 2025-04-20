@@ -348,7 +348,7 @@ public class BikeController : MonoBehaviour
 
     void PerformBackflip()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isflipping || Input.GetKeyDown(KeyCode.Joystick1Button0)&& !isflipping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isflipping || Input.GetKeyDown(KeyCode.Joystick1Button0) && !isflipping)
         {
             StartCoroutine(trickRoutine());
         }
