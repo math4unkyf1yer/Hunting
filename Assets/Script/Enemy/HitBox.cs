@@ -7,14 +7,18 @@ public class HitBox : MonoBehaviour
 {
     public int health;
     public int refillAmount;
+    public bool isAdeer;
+    public bool isABird;
     private Shoot shootScript;
     private SpawnScript spawnScript;
     public AudioSource deerSource;
     public AudioClip hurtAudio;
     public AudioClip deathAudio;
+    public GameObject Enemy;
 
     private void Start()
     {
+        
         GameObject ak = GameObject.Find("Ak47Holder");
         shootScript = ak.gameObject.GetComponent<Shoot>();
         spawnScript = GameObject.Find("GameManager").GetComponent<SpawnScript>();
@@ -47,6 +51,8 @@ public class HitBox : MonoBehaviour
         // refill bullets
         shootScript.IncreaseAmmo(refillAmount);
         spawnScript.isAlive -= 1;
-        Destroy(gameObject);
+        spawnScript.isABird = isABird;
+        spawnScript.isAdeer = isAdeer;
+        Destroy(Enemy);
     }
 }

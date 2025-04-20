@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyHead
   - Dead
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX
