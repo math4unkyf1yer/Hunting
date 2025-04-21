@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUDsCENE : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string scene;
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(scene);
+        }
     }
 }
