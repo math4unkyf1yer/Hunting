@@ -1354,6 +1354,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (9)
@@ -2019,6 +2023,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (6)
@@ -5863,6 +5871,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (7)
@@ -6912,6 +6924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (3)
@@ -7783,6 +7799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (11)
@@ -10821,6 +10841,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (4)
@@ -11879,7 +11903,7 @@ Transform:
   m_GameObject: {fileID: 1251293015}
   serializedVersion: 2
   m_LocalRotation: {x: -0.033626243, y: 0.048863124, z: 0.0016459835, w: 0.99823797}
-  m_LocalPosition: {x: 41.557503, y: -205.82257, z: -1152.9421}
+  m_LocalPosition: {x: 41.557503, y: -205.82259, z: -1152.9423}
   m_LocalScale: {x: 1, y: 1.0065117, z: 0.9936024}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13906,6 +13930,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (8)
@@ -14480,6 +14508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (5)
@@ -15344,6 +15376,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp
@@ -16214,6 +16250,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (10)
@@ -16499,6 +16539,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (1)
@@ -20310,6 +20354,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 214580361}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (2)

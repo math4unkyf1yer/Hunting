@@ -1718,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2660,6 +2664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2890,6 +2898,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3251,6 +3263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3606,6 +3622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3679,6 +3699,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127886311529643279, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3823,6 +3847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3961,6 +3989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4014,7 +4046,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 5b72624e35d71f643bbef9a67f69ac90, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!23 &296348611
 MeshRenderer:
@@ -4460,6 +4492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4736,6 +4772,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5224,6 +5264,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6114,6 +6158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6611,6 +6659,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8145,6 +8197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8303,6 +8359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8371,6 +8431,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8595,6 +8659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8683,6 +8751,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9150,6 +9222,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 774024780}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (24)
@@ -9278,6 +9354,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10218,6 +10298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10360,6 +10444,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11266,6 +11354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11572,6 +11664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11640,6 +11736,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11931,6 +12031,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12621,6 +12725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12689,6 +12797,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12763,6 +12875,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13266,6 +13382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13743,6 +13863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13817,6 +13941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13885,6 +14013,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14107,6 +14239,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14553,6 +14689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14722,6 +14862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14864,6 +15008,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15077,6 +15225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15240,6 +15392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15351,7 +15507,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 170.9203, y: -78.1999, z: 440.554}
-  m_LocalScale: {x: 1017.519, y: 1120.012, z: 839.03766}
+  m_LocalScale: {x: 310.77667, y: 1120.012, z: 259.4456}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1287228505}
@@ -15424,6 +15580,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15539,6 +15699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15612,6 +15776,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15756,6 +15924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15834,6 +16006,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16264,6 +16440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16342,6 +16522,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16554,6 +16738,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16771,6 +16959,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17058,6 +17250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17165,7 +17361,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 170.9203, y: -0.0001, z: 440.554}
-  m_LocalScale: {x: 1017.519, y: 1120.012, z: 839.03766}
+  m_LocalScale: {x: 289.48837, y: 426.99338, z: 267.3353}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1287228505}
@@ -17199,7 +17395,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: c6dc2859c70ea354d8e263ccc9ecc724, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &1609304107
 PrefabInstance:
@@ -18183,6 +18379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18251,6 +18451,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18435,6 +18639,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18726,6 +18934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18947,6 +19159,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19500,6 +19716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19670,6 +19890,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 774024780}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (22)
@@ -20099,6 +20323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20479,6 +20707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20547,6 +20779,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20838,6 +21074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20986,6 +21226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21059,6 +21303,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21316,6 +21564,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21607,6 +21859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine_tree3D (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21620,6 +21876,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 774024780}
     m_Modifications:
+    - target: {fileID: -4672999781211688189, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8643723721230361477, guid: 60bb1b8563f1bea479528ad4bc6e3f3e, type: 3}
       propertyPath: m_Name
       value: FlatRamp (26)
@@ -21758,6 +22018,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21970,6 +22234,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22380,6 +22648,10 @@ PrefabInstance:
     - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
       propertyPath: m_Name
       value: pine_tree3D (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823082165294896056, guid: b0a98f049c0babc408f30b16af7aad45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
