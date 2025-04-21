@@ -11,6 +11,7 @@ public class SpawnScript : MonoBehaviour
     public GameObject Enemy;
     public bool isAdeer;
     public bool isABird;
+    public bool isABear;
     public float xRangeMin = -700;
     public float xRangeMax = 270;
     public float zRangeMin = -212;
@@ -48,7 +49,17 @@ public class SpawnScript : MonoBehaviour
             Vector3 DeerSpawnPosition = new Vector3(x, yRange, z);
             isAlive += 1;
             GameObject EnemyClone = Instantiate(Enemy, DeerSpawnPosition, Enemy.transform.rotation);
-            Debug.Log("Another Deer Has Spawned!");
+            Debug.Log("Another Bird Has Spawned!");
+        }
+        if(isABear == true)
+        {
+            timeScript.enemyCount++;
+            float x = Random.Range(xRangeMin, xRangeMax);
+            float z = Random.Range(zRangeMin, zRangeMax);
+            Vector3 DeerSpawnPosition = new Vector3(x, yRange, z);
+            isAlive += 1;
+            GameObject EnemyClone = Instantiate(Enemy, DeerSpawnPosition, Enemy.transform.rotation);
+            Debug.Log("Another Bear Has Spawned!");
         }
     }
 }

@@ -9,6 +9,7 @@ public class HitBox : MonoBehaviour
     public int refillAmount;
     public bool isAdeer;
     public bool isABird;
+    public bool isABear;
     private Shoot shootScript;
     private SpawnScript spawnScript;
     public AudioSource deerSource;
@@ -53,6 +54,7 @@ public class HitBox : MonoBehaviour
         spawnScript.isAlive -= 1;
         spawnScript.isABird = isABird;
         spawnScript.isAdeer = isAdeer;
+        spawnScript.isABear = isABear;
         Destroy(Enemy);
     }
 }
