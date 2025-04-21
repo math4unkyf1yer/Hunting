@@ -64,8 +64,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: rockT_PF
       objectReference: {fileID: 0}
+    - target: {fileID: 8766630619104032464, guid: 535fba01ef21d0e48840e4bfd2fdd1c3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2d5976a613f8854eba2152ef0f473f7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -5756286325007489962, guid: 535fba01ef21d0e48840e4bfd2fdd1c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7449425031907428887}
   m_SourcePrefab: {fileID: 100100000, guid: 535fba01ef21d0e48840e4bfd2fdd1c3, type: 3}
+--- !u!1 &7254586513855434475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5756286325007489962, guid: 535fba01ef21d0e48840e4bfd2fdd1c3, type: 3}
+  m_PrefabInstance: {fileID: 6102632489758239421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7449425031907428887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254586513855434475}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3694284861359846792, guid: 535fba01ef21d0e48840e4bfd2fdd1c3, type: 3}
