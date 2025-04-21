@@ -75,6 +75,10 @@ public class UI : MonoBehaviour
         Application.Quit();
     }
 
+    public void Continue() {
+        SceneManager.LoadScene("Area1Hub");
+    }
+
 
     // Pause Menu Methods
 
@@ -125,7 +129,7 @@ public class UI : MonoBehaviour
         yield return new WaitForSeconds(5f);
         controlMenu.SetActive(false);
         MainMenu.SetActive(true);
-        SceneManager.LoadScene("Area2");
+        SceneManager.LoadScene("Area1Hub");
         
     }
 }
