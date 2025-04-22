@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using TMPro;
 
 public class Shoot : MonoBehaviour
@@ -31,7 +32,8 @@ public class Shoot : MonoBehaviour
     public AudioClip gunEmpty;       //Audio for Shotgun
     public AudioClip gunReload;       //Audio for Shotgun
     public AudioSource gunSource;       //AudioSource of the gun
-
+    [SerializeField] ParticleSystem _flashPart; 
+    [SerializeField] ParticleSystem _bulletPart; 
 
 
     void Start () {
@@ -55,6 +57,11 @@ public class Shoot : MonoBehaviour
             bulletText.text = amountOfBullet.ToString();
             gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
             reloading = true;
+
+            //Particle for bullet and gunfire
+            _flashPart.Play();
+            _bulletPart.Play();
+            
             ShootRaycast();
             StartCoroutine(waitForReload());
         }

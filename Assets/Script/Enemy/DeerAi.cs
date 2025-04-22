@@ -23,6 +23,9 @@ public class DeerAi : MonoBehaviour
 
     public GameObject body;
     public Material shinyGold;
+
+    //Particle Effects
+    [SerializeField] ParticleSystem _dustPart; 
     
 
     public Animator deerAnimation;
@@ -80,6 +83,8 @@ public class DeerAi : MonoBehaviour
         Vector3 randomPoint = originalPosition + new Vector3(Random.Range(-patrolRange, patrolRange), 0, Random.Range(-patrolRange, patrolRange));
         agent.speed = patrolSpeed;
         agent.SetDestination(randomPoint);
+
+        _dustPart.Stop();
     }
 
     void RunAwayFrom(Vector3 threatPosition)
@@ -90,6 +95,8 @@ public class DeerAi : MonoBehaviour
         agent.speed = chasespeed;
         agent.SetDestination(runToPosition);
         isRunningAway = true;
+
+        _dustPart.Play();
     }
 
     void OnGunshotHeard(Vector3 gunshotPosition)
