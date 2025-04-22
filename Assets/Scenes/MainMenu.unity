@@ -2387,6 +2387,7 @@ GameObject:
   - component: {fileID: 314509334}
   - component: {fileID: 314509337}
   - component: {fileID: 314509338}
+  - component: {fileID: 314509339}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2589,6 +2590,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &314509339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314509333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8f0ca68dd5f79419e77ea33b4af029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &318408937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9b4d6383544a43b46b374a271d1fb140, type: 3}
@@ -4713,6 +4726,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f2d5976a613f8854eba2152ef0f473f7, type: 2}
+    - target: {fileID: 8384623608111906559, guid: f3c122ac9c59e7d418049b16c74b3e2b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 2b2c40bf01d37d7429972a4377ce5a12, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5411,6 +5428,18 @@ PrefabInstance:
       value: fence_PF (3)
       objectReference: {fileID: 0}
     - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 65.50907
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 69.33743
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 69.33743
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.775757
       objectReference: {fileID: 0}
@@ -5608,6 +5637,7 @@ MonoBehaviour:
   Enemy: {fileID: 6016412385997197790, guid: 065cc099d7214a94aa1012c508e71e03, type: 3}
   isAdeer: 1
   isABird: 0
+  isABear: 0
   xRangeMin: -700
   xRangeMax: 270
   zRangeMin: -212
@@ -5630,6 +5660,7 @@ MonoBehaviour:
   deerDefeated: {fileID: 0}
   ASDJSAD: []
   enemyCount: 0
+  amountTodefeat: 0
 --- !u!4 &676524704
 Transform:
   m_ObjectHideFlags: 0
@@ -5721,6 +5752,18 @@ PrefabInstance:
     - target: {fileID: 8567591272801629927, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
       propertyPath: m_Name
       value: fence_PF
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 45.768196
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 48.442898
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 48.442898
       objectReference: {fileID: 0}
     - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6831,7 +6874,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 314509337}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Continue
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13614,6 +13657,18 @@ PrefabInstance:
       value: fence_PF (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 33.435207
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 35.389164
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 35.389164
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056143405077474397, guid: 0e837037d24e5ad438e3d33a923261bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 126.809265
       objectReference: {fileID: 0}
@@ -15672,6 +15727,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f2d5976a613f8854eba2152ef0f473f7, type: 2}
+    - target: {fileID: 5997209860397157718, guid: c80a48ee5ba03df438054b686bd46cc5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 187.78566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997209860397157718, guid: c80a48ee5ba03df438054b686bd46cc5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 187.78566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997209860397157718, guid: c80a48ee5ba03df438054b686bd46cc5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 187.78564
+      objectReference: {fileID: 0}
     - target: {fileID: 5997209860397157718, guid: c80a48ee5ba03df438054b686bd46cc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.83725

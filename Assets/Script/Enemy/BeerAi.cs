@@ -39,10 +39,11 @@ public class BeerAi : MonoBehaviour
 
         if (distanceToPlayer <= attackRange)
         {
-            AttackPlayer();
+          //  AttackPlayer();
         }
         else if (distanceToPlayer <= detectionRange)
         {
+           
             ChasePlayer();
         }
         else
@@ -55,6 +56,7 @@ public class BeerAi : MonoBehaviour
     {
         if (!isAttacking)
         {
+            Debug.Log("Romming");
             agent.speed = roamSpeed;
             if (!agent.pathPending && agent.remainingDistance < 1f)
             {
@@ -67,8 +69,12 @@ public class BeerAi : MonoBehaviour
     {
         if (!isAttacking)
         {
+            Debug.Log("chasePlayer");
             agent.speed = chaseSpeed;
             agent.SetDestination(player.position);
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0, directionToPlayer.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
     }
 
@@ -76,6 +82,7 @@ public class BeerAi : MonoBehaviour
     {
         if (Time.time - lastAttackTime >= attackCooldown)
         {
+            Debug.Log("attacking");
             isAttacking = true;
             lastAttackTime = Time.time;
 
