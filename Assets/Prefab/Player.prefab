@@ -542,6 +542,10 @@ PrefabInstance:
       value: Bike
       objectReference: {fileID: 0}
     - target: {fileID: 4951720035849901230, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: _emptyAnim
+      value: 
+      objectReference: {fileID: 7707310437392118676}
+    - target: {fileID: 4951720035849901230, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: bulletText
       value: 
       objectReference: {fileID: 2322486057562489297}

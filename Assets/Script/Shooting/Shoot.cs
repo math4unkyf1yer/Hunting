@@ -32,8 +32,13 @@ public class Shoot : MonoBehaviour
     public AudioClip gunEmpty;       //Audio for Shotgun
     public AudioClip gunReload;       //Audio for Shotgun
     public AudioSource gunSource;       //AudioSource of the gun
+
+    //Particle Effects
     [SerializeField] ParticleSystem _flashPart; 
     [SerializeField] ParticleSystem _bulletPart; 
+
+    //UI Animations
+    [SerializeField] Animation _emptyAnim; 
 
 
     void Start () {
@@ -71,6 +76,8 @@ public class Shoot : MonoBehaviour
             gunSource.clip = gunEmpty;
             gunSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
             gunSource.Play();
+
+            _emptyAnim.Play("Bullet_Shake");
         }
 
         if (amountOfBullet < 0)
