@@ -111,9 +111,9 @@ public class Shoot : MonoBehaviour
     }
     public void waitForRealoadDead()
     {
-        amountOfBullet -= 1;
-        amountOfBulletShown = amountOfBullet - 1;
-        bulletText.text = "1/" + amountOfBullet.ToString();
+       // amountOfBullet -= 1;
+       // amountOfBulletShown = amountOfBullet - 1;
+       // bulletText.text = "1/" + amountOfBullet.ToString();
         reloading = false;
     }
 

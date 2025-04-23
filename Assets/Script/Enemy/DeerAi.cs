@@ -24,9 +24,15 @@ public class DeerAi : MonoBehaviour
     public GameObject body;
     public Material shinyGold;
 
+    public AudioClip notify;
+    public AudioSource deerAudio;
+
     //Particle Effects
-    [SerializeField] ParticleSystem _dustPart; 
-    
+    [SerializeField] ParticleSystem _dustPart;
+    public Transform particleChild;
+    GameObject particleObject;
+    private bool firstTime;
+
 
     public Animator deerAnimation;
     void OnEnable()
@@ -40,7 +46,21 @@ public class DeerAi : MonoBehaviour
     }
     void Start()
     {
-        CheckShiny();
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Particle"))
+            {
+                particleChild = child;
+                break; // Found it, no need to keep checking
+            }
+        }
+
+        if (particleChild != null)
+        {
+            particleObject = particleChild.gameObject;
+            // Now you can use particleObject
+        }
+        // CheckShiny();
 
         agent = GetComponent<NavMeshAgent>();
         originalPosition = transform.position;
@@ -80,6 +100,10 @@ public class DeerAi : MonoBehaviour
     {
         if (isRunningAway) return; // Don't patrol if fleeing
 
+        if (firstTime == true)
+        {
+            firstTime = false;
+        }
         Vector3 randomPoint = originalPosition + new Vector3(Random.Range(-patrolRange, patrolRange), 0, Random.Range(-patrolRange, patrolRange));
         agent.speed = patrolSpeed;
         agent.SetDestination(randomPoint);
@@ -89,6 +113,14 @@ public class DeerAi : MonoBehaviour
 
     void RunAwayFrom(Vector3 threatPosition)
     {
+        if (firstTime != true)//particle system Notice
+        {
+            firstTime = true;
+            particleObject.SetActive(true);
+            deerAudio.clip = notify;
+            deerAudio.Play();
+            StartCoroutine(ParticleClose());
+        }
         Vector3 directionAway = (transform.position - threatPosition).normalized;
         Vector3 runToPosition = transform.position + directionAway * runDistance;
 
@@ -126,6 +158,12 @@ public class DeerAi : MonoBehaviour
         }
     }
 
+    IEnumerator ParticleClose()
+    {
+        yield return new WaitForSeconds(2f);
+        deerAudio.Stop();
+        particleObject.gameObject.SetActive(false);
+    }
     void ChangeAppearance()
     {
         GetComponent<Renderer>().material.color = isShiny ? Color.green : Color.red;

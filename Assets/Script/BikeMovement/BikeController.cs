@@ -375,7 +375,14 @@ public class BikeController : MonoBehaviour
 
     bool Grounded()
     {
-        if(Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
+        if (Physics.Raycast(sphereRb.position, Vector3.down, out hit, rayLenght, deadLayer))
+        {
+            isdead = false;
+            cantCrash = false;
+            outsideMap();
+            return true;
+        }
+        if (Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
         {
             inAir = false;
             return true;
