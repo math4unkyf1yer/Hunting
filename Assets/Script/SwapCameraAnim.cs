@@ -7,6 +7,7 @@ public class SwapCameraAnim : MonoBehaviour
     public GameObject cameraAnim1;
     public GameObject cameraAnim2;
     public GameObject cameraAnim3;
+    public GameObject animal;
 
     public GameObject menu;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class SwapCameraAnim : MonoBehaviour
         yield return new WaitForSeconds(4f);
         cameraAnim2.SetActive(false);
         cameraAnim3.SetActive(true);
+        animal.SetActive(true);
         menu.SetActive(true);
     }
 }

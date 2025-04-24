@@ -119,6 +119,8 @@ public class UI : MonoBehaviour
         isPause = false;
     }
     public void LoadMenu() {
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
