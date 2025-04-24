@@ -2890,6 +2890,10 @@ PrefabInstance:
       value: 0.0030545907
       objectReference: {fileID: 0}
     - target: {fileID: 3732953740133707056, guid: 6dab8702589965f4896894bad2427eff, type: 3}
+      propertyPath: canstall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732953740133707056, guid: 6dab8702589965f4896894bad2427eff, type: 3}
       propertyPath: outsideMapSpawn
       value: 
       objectReference: {fileID: 764878279}

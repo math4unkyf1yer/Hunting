@@ -165,6 +165,7 @@ public class BikeController : MonoBehaviour
 
         if (newSpeed <= 40f && cantCrash == false && canstall == false) // If stopped, trigger game over
         {
+            Debug.Log("Hello");
             //falling over 
             Stalling();
         }
@@ -256,7 +257,7 @@ public class BikeController : MonoBehaviour
     }
     IEnumerator Immortal()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(4f);
         playerObjMaterial.material = oldMat;
         cantCrash = false;
     }
