@@ -108,9 +108,6 @@ public class UI : MonoBehaviour
         Cursor.visible = true;
         pauseMenu.SetActive(true);
         shootScript.canShoot = false;
-        
-
-
     }
 
     public void Resume() {

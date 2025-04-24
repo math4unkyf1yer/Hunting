@@ -15,9 +15,38 @@ public class BeerAi : MonoBehaviour
     private float lastAttackTime;
     private Vector3 startPosition;
     private bool isAttacking = false;
+    private Animator bearAnimation;
+    private float hearingRange;
 
+    public AudioClip notify;
+    public AudioSource bearAudio;
+    //particle
+    public Transform particleChild;
+    GameObject particleNoticeObject;
+    private bool firstTime;
+
+
+    void OnEnable()
+    {
+        GunBroadCast.OnGunshotFired += OnGunshotHeard;
+    }
+
+    void OnDisable()
+    {
+        GunBroadCast.OnGunshotFired -= OnGunshotHeard;
+    }
     void Start()
     {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Particle"))
+            {
+                particleNoticeObject = child.gameObject;
+                break; // Found it, no need to keep checking
+            }
+        }
+        bearAnimation = GetComponentInChildren<Animator>();
+        hearingRange += detectionRange + 50;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
@@ -37,12 +66,12 @@ public class BeerAi : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= attackRange)
+        if (distanceToPlayer <= attackRange && !isAttacking)
         {
             AttackPlayer();
         }
         else if (distanceToPlayer <= detectionRange)
-        {
+        {        
             ChasePlayer();
         }
         else
@@ -55,6 +84,12 @@ public class BeerAi : MonoBehaviour
     {
         if (!isAttacking)
         {
+            if(firstTime == true)
+            {
+                firstTime = false;
+            }
+            bearAnimation.SetBool("isRunning", false);
+            Debug.Log("Romming");
             agent.speed = roamSpeed;
             if (!agent.pathPending && agent.remainingDistance < 1f)
             {
@@ -63,55 +98,84 @@ public class BeerAi : MonoBehaviour
         }
     }
 
+    void OnGunshotHeard(Vector3 gunshotPosition)
+    {
+        float distance = Vector3.Distance(transform.position, gunshotPosition);
+        if (distance <= hearingRange && !isAttacking)
+        {
+            Debug.Log($"{name} heard a gunshot and is fleeing!");
+            ChasePlayer();
+        }
+    }
     void ChasePlayer()
     {
         if (!isAttacking)
         {
+            if(firstTime != true)//particle system Notice
+            {
+                firstTime = true;
+                particleNoticeObject.SetActive(true);
+                bearAudio.clip = notify;
+                bearAudio.Play();
+                StartCoroutine(ParticleClose());
+            }
+            bearAnimation.SetBool("isRunning", true);
+            Debug.Log("chasePlayer");
             agent.speed = chaseSpeed;
             agent.SetDestination(player.position);
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0, directionToPlayer.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
     }
 
     void AttackPlayer()
     {
-        if (Time.time - lastAttackTime >= attackCooldown)
+        if (Time.time - lastAttackTime >= 5f)
         {
+            Debug.Log("DASH ATTACK!");
             isAttacking = true;
-            lastAttackTime = Time.time;
 
-            // Stop the bear's movement
+            // Stop agent movement and start dash
             agent.ResetPath();
 
-            // Face the player directly
+            StartCoroutine(DashAtPlayer());
+        }
+    }
+    IEnumerator ParticleClose()
+    {
+        yield return new WaitForSeconds(2f);
+        bearAudio.Stop();
+        particleNoticeObject.gameObject.SetActive(false);
+    }
+    IEnumerator DashAtPlayer()
+    {
+        float dashTime = 1.5f;
+        float dashSpeed = 160f; // insane speed
+        float elapsed = 0f;
+
+        // Face the player before starting the dash
+
+        while (elapsed < dashTime)
+        {
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0, directionToPlayer.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+            transform.rotation = lookRotation;
+            directionToPlayer = (player.position - transform.position).normalized;
+            transform.position += directionToPlayer * dashSpeed * Time.deltaTime;
 
-            // Slow the player
-        /*    PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-            if (playerMovement != null)
-            {
-                playerMovement.SlowDown(); // Slow down the player for 1 second
-                playerMovement.SetAttacking(true); // Stop player's movement during attack
-            }*/
-
-            Invoke("FinishAttack", attackCooldown); // Allow attack to complete after cooldown
+            elapsed += Time.deltaTime;
+            yield return null;
         }
+
+        FinishAttack();
     }
 
     void FinishAttack()
     {
-        isAttacking = false; // Allow bear to resume roaming or chasing
-
-        // Resume player's movement after attack
-      /*  PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        if (playerMovement != null)
-        {
-            playerMovement.SetAttacking(false); // Allow player movement after attack
-        }*/
-
-        // Bear can now resume movement
-        SetNewDestination();
+        isAttacking = false;
+        lastAttackTime = Time.time;
+        SetNewDestination(); // Resume roaming or chasing
     }
 
     void SetNewDestination()

@@ -17,6 +17,7 @@ public class TimeScript : MonoBehaviour
     private int seconds;
     // Counts how many deer are killed
     public int enemyCount = 0;
+    public int amountTodefeat;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class TimeScript : MonoBehaviour
 
     void Update()
     {
-        deerDefeated.text = enemyCount + "/4".ToString();
+        deerDefeated.text = enemyCount + "/" + amountTodefeat.ToString();
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
@@ -35,7 +36,7 @@ public class TimeScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             timeRemaining = 0;
-            if(enemyCount >= 4) {
+            if(enemyCount >= amountTodefeat) {
                 SceneManager.LoadScene("WinScreen");
             }
             else

@@ -16,10 +16,28 @@ public class HitBox : MonoBehaviour
     public AudioClip hurtAudio;
     public AudioClip deathAudio;
     public GameObject Enemy;
+    public Material oldMaterial;
+    public Material newMaterial;
+    private Renderer enemyRenderer;
+
+    //particle
+    private GameObject deadParticle;
 
     private void Start()
     {
-        
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("DeadParticle"))
+            {
+                deadParticle = child.gameObject;
+                break; // Found it, no need to keep checking
+            }
+        }
+        enemyRenderer = Enemy.GetComponent<Renderer>();
+        if(enemyRenderer == null)
+        {
+            enemyRenderer = Enemy.GetComponentInChildren<Renderer>();
+        }
         GameObject ak = GameObject.Find("Ak47Holder");
         shootScript = ak.gameObject.GetComponent<Shoot>();
         spawnScript = GameObject.Find("GameManager").GetComponent<SpawnScript>();
@@ -35,20 +53,32 @@ public class HitBox : MonoBehaviour
             deerSource.clip = hurtAudio;
             deerSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
             deerSource.Play();
+            enemyRenderer.material = newMaterial;
+            StartCoroutine(ChangeMaterialGotHurt());
         }
 
         if (health <= 0)
         {
             deerSource.clip = deathAudio;
             deerSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
-            AudioSource.PlayClipAtPoint(deathAudio, transform.position, 1f);
 
-            Dead();
+            StartCoroutine(Dead());
         }
     }
 
-    void Dead()
+    IEnumerator ChangeMaterialGotHurt()
     {
+        yield return new WaitForSeconds(.5f);
+        enemyRenderer.material = oldMaterial;
+    }
+
+    IEnumerator Dead()
+    {
+        enemyRenderer.gameObject.SetActive(false);
+        deadParticle.gameObject.SetActive(true);
+        deerSource.clip = deathAudio;
+        deerSource.Play();
+        yield return new WaitForSeconds(1f);
         // refill bullets
         shootScript.IncreaseAmmo(refillAmount);
         spawnScript.isAlive -= 1;

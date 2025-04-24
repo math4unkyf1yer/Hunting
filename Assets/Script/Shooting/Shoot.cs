@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using TMPro;
 
 public class Shoot : MonoBehaviour
@@ -32,6 +33,12 @@ public class Shoot : MonoBehaviour
     public AudioClip gunReload;       //Audio for Shotgun
     public AudioSource gunSource;       //AudioSource of the gun
 
+    //Particle Effects
+    [SerializeField] ParticleSystem _flashPart; 
+    [SerializeField] ParticleSystem _bulletPart; 
+
+    //UI Animations
+    [SerializeField] Animation _emptyAnim; 
 
 
     void Start () {
@@ -55,6 +62,11 @@ public class Shoot : MonoBehaviour
             bulletText.text = amountOfBullet.ToString();
             gunBroadcastScript.BroadcastGunshot(gameObject.transform.position);
             reloading = true;
+
+            //Particle for bullet and gunfire
+            _flashPart.Play();
+            _bulletPart.Play();
+            
             ShootRaycast();
             StartCoroutine(waitForReload());
         }
@@ -64,6 +76,8 @@ public class Shoot : MonoBehaviour
             gunSource.clip = gunEmpty;
             gunSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
             gunSource.Play();
+
+            _emptyAnim.Play("Bullet_Shake");
         }
 
         if (amountOfBullet < 0)
@@ -97,9 +111,9 @@ public class Shoot : MonoBehaviour
     }
     public void waitForRealoadDead()
     {
-        amountOfBullet -= 1;
-        amountOfBulletShown = amountOfBullet - 1;
-        bulletText.text = "1/" + amountOfBullet.ToString();
+       // amountOfBullet -= 1;
+       // amountOfBulletShown = amountOfBullet - 1;
+       // bulletText.text = "1/" + amountOfBullet.ToString();
         reloading = false;
     }
 

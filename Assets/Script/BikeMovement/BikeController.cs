@@ -39,6 +39,7 @@ public class BikeController : MonoBehaviour
     //for backflip 
     private bool isflipping;
     private bool isStalling = false;
+    public bool canstall;
 
     public bool cantCrash;
 
@@ -162,7 +163,7 @@ public class BikeController : MonoBehaviour
             sphereRb.velocity = transform.forward * newSpeed;
         }
 
-        if (newSpeed <= 40f && cantCrash == false) // If stopped, trigger game over
+        if (newSpeed <= 40f && cantCrash == false && canstall == false) // If stopped, trigger game over
         {
             //falling over 
             Stalling();
@@ -374,7 +375,14 @@ public class BikeController : MonoBehaviour
 
     bool Grounded()
     {
-        if(Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
+        if (Physics.Raycast(sphereRb.position, Vector3.down, out hit, rayLenght, deadLayer))
+        {
+            isdead = false;
+            cantCrash = false;
+            outsideMap();
+            return true;
+        }
+        if (Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
         {
             inAir = false;
             return true;
