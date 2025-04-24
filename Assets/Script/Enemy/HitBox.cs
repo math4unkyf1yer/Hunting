@@ -86,7 +86,10 @@ public class HitBox : MonoBehaviour
 
     IEnumerator Dead()
     {
-        enemyCollider.enabled = false;
+        if (!enemyCollider)
+        {
+            enemyCollider.enabled = false;
+        }
         enemyRenderer.gameObject.SetActive(false);
         deadParticle.gameObject.SetActive(true);
         deerSource.clip = deathAudio;
