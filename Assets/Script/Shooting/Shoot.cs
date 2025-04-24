@@ -50,6 +50,10 @@ public class Shoot : MonoBehaviour
         //Define AudioSource
         gunSource = GetComponent<AudioSource>();
 
+        //Set amount of bullets to 0
+        amountOfBullet = 3;
+        bulletText.text = amountOfBullet.ToString();
+
     }
     private void Update()
     {

@@ -64,10 +64,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3188892688128277277, guid: 06fe1df0de40513459b0f0c248b2b11b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 33ebe2cc5e30aea4e81dafa53539c80a, type: 2}
     - target: {fileID: 919132149155446097, guid: 06fe1df0de40513459b0f0c248b2b11b, type: 3}
       propertyPath: m_Name
       value: Tree_PF
       objectReference: {fileID: 0}
+    - target: {fileID: 1446317025356153247, guid: 06fe1df0de40513459b0f0c248b2b11b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c64b5745351ee7f4f84825111bb74add, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
