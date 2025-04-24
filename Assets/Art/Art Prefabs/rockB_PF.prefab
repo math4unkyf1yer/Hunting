@@ -22,35 +22,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.687172
+      value: 849.6845
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 305.3048
+      value: 23.900002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.79625
+      value: -333.70227
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3410715
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.9370861
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.06994253
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.025456958
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -58,8 +58,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -38.537
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -41150293619199048, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2d5976a613f8854eba2152ef0f473f7, type: 2}
     - target: {fileID: 919132149155446097, guid: db53c9cc9d7e7544da3fbe240835211f, type: 3}
       propertyPath: m_Name
       value: rockB_PF
@@ -114,7 +118,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382695861551616889}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2b2c40bf01d37d7429972a4377ce5a12, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
