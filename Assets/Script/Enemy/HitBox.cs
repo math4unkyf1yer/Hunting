@@ -21,6 +21,8 @@ public class HitBox : MonoBehaviour
     public Material newMaterial;
     private Renderer enemyRenderer;
 
+    private BeerAi bearScript;
+
     //particle
     private GameObject deadParticle;
 
@@ -33,6 +35,10 @@ public class HitBox : MonoBehaviour
                 deadParticle = child.gameObject;
                 break; // Found it, no need to keep checking
             }
+        }
+        if(isABear == true)
+        {
+            bearScript = gameObject.GetComponent<BeerAi>();
         }
         enemyCollider = Enemy.GetComponent<Collider>();
         enemyRenderer = Enemy.GetComponent<Renderer>();
@@ -50,6 +56,10 @@ public class HitBox : MonoBehaviour
     {
         health -= damage;
 
+        if(bearScript != null)
+        {
+            bearScript.gotHit = true;
+        }
         if (health > 0)
         {
             deerSource.clip = hurtAudio;

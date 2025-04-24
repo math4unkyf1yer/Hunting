@@ -24,6 +24,7 @@ public class BeerAi : MonoBehaviour
     public Transform particleChild;
     GameObject particleNoticeObject;
     private bool firstTime;
+    public bool gotHit;
 
 
     void OnEnable()
@@ -70,7 +71,7 @@ public class BeerAi : MonoBehaviour
         {
             AttackPlayer();
         }
-        else if (distanceToPlayer <= detectionRange)
+        else if (distanceToPlayer <= detectionRange || gotHit == true)
         {        
             ChasePlayer();
         }
