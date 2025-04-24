@@ -16,6 +16,7 @@ public class HitBox : MonoBehaviour
     public AudioClip hurtAudio;
     public AudioClip deathAudio;
     public GameObject Enemy;
+    public GameObject EnemyDeerBody;
     private Collider enemyCollider;
     public Material oldMaterial;
     public Material newMaterial;
@@ -40,7 +41,10 @@ public class HitBox : MonoBehaviour
         {
             bearScript = gameObject.GetComponent<BeerAi>();
         }
-        enemyCollider = Enemy.GetComponent<Collider>();
+        if (isABear && isABird)
+        {
+            enemyCollider = Enemy.GetComponent<Collider>();
+        }
         enemyRenderer = Enemy.GetComponent<Renderer>();
         if(enemyRenderer == null)
         {
@@ -86,7 +90,8 @@ public class HitBox : MonoBehaviour
 
     IEnumerator Dead()
     {
-        if (!enemyCollider)
+        Debug.Log(enemyCollider);
+        if (enemyCollider != null)
         {
             enemyCollider.enabled = false;
         }

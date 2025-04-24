@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: bf02bf9646f538a4faccd7da60c57241, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2883,19 +2883,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3178217268532708513, guid: 6dab8702589965f4896894bad2427eff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.26424766
       objectReference: {fileID: 0}
     - target: {fileID: 3178217268532708513, guid: 6dab8702589965f4896894bad2427eff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.00083692116
       objectReference: {fileID: 0}
     - target: {fileID: 3178217268532708513, guid: 6dab8702589965f4896894bad2427eff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.96444964
       objectReference: {fileID: 0}
     - target: {fileID: 3178217268532708513, guid: 6dab8702589965f4896894bad2427eff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0030545907
       objectReference: {fileID: 0}
     - target: {fileID: 3732953740133707056, guid: 6dab8702589965f4896894bad2427eff, type: 3}
       propertyPath: outsideMapSpawn
@@ -28662,11 +28662,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer
       objectReference: {fileID: 0}
+    - target: {fileID: 6432709625554927753, guid: 065cc099d7214a94aa1012c508e71e03, type: 3}
+      propertyPath: EnemyDeerBody
+      value: 
+      objectReference: {fileID: 3155271464479974880}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065cc099d7214a94aa1012c508e71e03, type: 3}
+--- !u!1 &3155271464479974880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2942456942123228934, guid: 065cc099d7214a94aa1012c508e71e03, type: 3}
+  m_PrefabInstance: {fileID: 3155271464479974879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5538676910647377217
 PrefabInstance:
   m_ObjectHideFlags: 0
