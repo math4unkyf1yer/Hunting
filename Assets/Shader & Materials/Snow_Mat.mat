@@ -36,7 +36,7 @@ Material:
     - _Lighting_Cutoff: 1
     - _Shadow_Brightness: 0.48
     m_Colors:
-    - _Color: {r: 0.74509805, g: 0.79215693, b: 0.882353, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _Light_Direction: {r: 80.744, g: -29.651, b: 5.198, a: 0}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

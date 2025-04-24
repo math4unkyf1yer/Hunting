@@ -103,7 +103,7 @@ MonoBehaviour:
   hurtAudio: {fileID: 8300000, guid: e0b5504b0c5e79643a24080564e78e71, type: 3}
   deathAudio: {fileID: 8300000, guid: f7e787a323361004cb6600359642d358, type: 3}
   Enemy: {fileID: 2324535638002907216}
-  oldMaterial: {fileID: 2100000, guid: d2593652d52ecb14d9f01e33473cca4c, type: 2}
+  oldMaterial: {fileID: 2100000, guid: fee3269f262d9b94b921e6c6810c899a, type: 2}
   newMaterial: {fileID: 2100000, guid: 5bfc6c8b992f01f4ba4b5003623a3f50, type: 2}
 --- !u!82 &1548467271650149650
 AudioSource:
