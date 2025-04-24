@@ -16,6 +16,7 @@ public class HitBox : MonoBehaviour
     public AudioClip hurtAudio;
     public AudioClip deathAudio;
     public GameObject Enemy;
+    private Collider enemyCollider;
     public Material oldMaterial;
     public Material newMaterial;
     private Renderer enemyRenderer;
@@ -33,6 +34,7 @@ public class HitBox : MonoBehaviour
                 break; // Found it, no need to keep checking
             }
         }
+        enemyCollider = Enemy.GetComponent<Collider>();
         enemyRenderer = Enemy.GetComponent<Renderer>();
         if(enemyRenderer == null)
         {
@@ -74,6 +76,7 @@ public class HitBox : MonoBehaviour
 
     IEnumerator Dead()
     {
+        enemyCollider.enabled = false;
         enemyRenderer.gameObject.SetActive(false);
         deadParticle.gameObject.SetActive(true);
         deerSource.clip = deathAudio;
