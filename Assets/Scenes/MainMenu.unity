@@ -3292,6 +3292,10 @@ PrefabInstance:
       propertyPath: outsideMapSpawn
       value: 
       objectReference: {fileID: 1630864412}
+    - target: {fileID: 2473354487196297962, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2940926199076313885, guid: 7993afa11162a3f4e80d29b2354f11c9, type: 3}
       propertyPath: m_IsActive
       value: 0
