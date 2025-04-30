@@ -8572,7 +8572,7 @@ MonoBehaviour:
   xRangeMax: 270
   zRangeMin: -212
   zRangeMax: 690
-  yRange: 0
+  yRange: 30
 --- !u!114 &640174475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26915,7 +26915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 668601031311108856, guid: 065cc099d7214a94aa1012c508e71e03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.666434
+      value: 13.4
       objectReference: {fileID: 0}
     - target: {fileID: 668601031311108856, guid: 065cc099d7214a94aa1012c508e71e03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27577,7 +27577,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 5fd5c648c4963f4418e9d6d5325db6ba, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0ae1ed46cad2d0144882609c8b1aaba6, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &2034857911 stripped
 Transform:
