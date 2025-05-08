@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using TMPro;
 
 public class HitBox : MonoBehaviour
 {
@@ -21,8 +22,16 @@ public class HitBox : MonoBehaviour
     public Material oldMaterial;
     public Material newMaterial;
     private Renderer enemyRenderer;
+    public bool isShiny = false;
+    public int shinyChance = 3;
+    public Material shinyGold;
+    public string Type = "Normal";
 
     private BeerAi bearScript;
+
+    public int scoreEnemy;
+    private BikeController bikeControllerscript;
+    private Score scoreScript;
 
     //particle
     private GameObject deadParticle;
@@ -50,10 +59,33 @@ public class HitBox : MonoBehaviour
         {
             enemyRenderer = Enemy.GetComponentInChildren<Renderer>();
         }
+        CheckShiny();
+        if (isShiny)
+        {
+            scoreEnemy += scoreEnemy;
+        }
+        scoreScript = GameObject.Find("GameManager").GetComponent<Score>();
         GameObject ak = GameObject.Find("Ak47Holder");
         shootScript = ak.gameObject.GetComponent<Shoot>();
         spawnScript = GameObject.Find("GameManager").GetComponent<SpawnScript>();
         deerSource = GetComponent<AudioSource>();
+    }
+    void CheckShiny()
+    {
+        int rand = Random.Range(0, 10);
+        if (rand <= shinyChance)
+        {
+            Debug.Log("shiny");
+            Debug.Log(enemyRenderer);
+            if (enemyRenderer != null)
+            {
+                // Access material, transform, etc.
+                enemyRenderer.material = shinyGold;
+                oldMaterial = shinyGold;
+            }
+            isShiny = true;
+            Type = "Shiny";
+        }
     }
 
     public void TakeDamage(int damage)
@@ -77,6 +109,17 @@ public class HitBox : MonoBehaviour
         {
             deerSource.clip = deathAudio;
             deerSource.pitch = UnityEngine.Random.Range(0.8f, 1.3f);
+
+            bikeControllerscript = GameObject.Find("Bike").GetComponent<BikeController>();
+            if (bikeControllerscript.Grounded() == true)
+            {
+                scoreScript.score += scoreEnemy;
+            }
+            else
+            {
+                int scorecl = scoreEnemy + scoreEnemy;
+                scoreScript.score += scorecl;
+            }
 
             StartCoroutine(Dead());
         }

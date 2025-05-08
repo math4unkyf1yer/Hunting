@@ -50,7 +50,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1
   m_Speed: 3.5
-  m_Acceleration: 50
+  m_Acceleration: 70
   avoidancePriority: 50
   m_AngularSpeed: 200
   m_StoppingDistance: 1
@@ -82,6 +82,7 @@ MonoBehaviour:
   notify: {fileID: 8300000, guid: d8cee6900d453d646bb2c407f3553720, type: 3}
   bearAudio: {fileID: 1548467271650149650}
   particleChild: {fileID: 0}
+  gotHit: 0
 --- !u!114 &4705751589834295738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,8 +104,14 @@ MonoBehaviour:
   hurtAudio: {fileID: 8300000, guid: e0b5504b0c5e79643a24080564e78e71, type: 3}
   deathAudio: {fileID: 8300000, guid: f7e787a323361004cb6600359642d358, type: 3}
   Enemy: {fileID: 2324535638002907216}
+  EnemyDeerBody: {fileID: 0}
   oldMaterial: {fileID: 2100000, guid: fee3269f262d9b94b921e6c6810c899a, type: 2}
   newMaterial: {fileID: 2100000, guid: 5bfc6c8b992f01f4ba4b5003623a3f50, type: 2}
+  isShiny: 0
+  shinyChance: 3
+  shinyGold: {fileID: 2100000, guid: 35e2c52a23aad8145a45c4570ff0bfd7, type: 2}
+  Type: Normal
+  scoreEnemy: 50
 --- !u!82 &1548467271650149650
 AudioSource:
   m_ObjectHideFlags: 0

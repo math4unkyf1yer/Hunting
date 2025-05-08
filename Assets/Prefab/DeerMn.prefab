@@ -5136,8 +5136,14 @@ MonoBehaviour:
   hurtAudio: {fileID: 8300000, guid: d8f7f42f9988db441959963587a7fffb, type: 3}
   deathAudio: {fileID: 8300000, guid: f7e787a323361004cb6600359642d358, type: 3}
   Enemy: {fileID: 6016412385997197790}
+  EnemyDeerBody: {fileID: 0}
   oldMaterial: {fileID: 2100000, guid: 69f8dcca3be6ad14a97fbadbf59afa50, type: 2}
   newMaterial: {fileID: 2100000, guid: 5bfc6c8b992f01f4ba4b5003623a3f50, type: 2}
+  isShiny: 0
+  shinyChance: 3
+  shinyGold: {fileID: 2100000, guid: 35e2c52a23aad8145a45c4570ff0bfd7, type: 2}
+  Type: Normal
+  scoreEnemy: 25
 --- !u!82 &79793261191812038
 AudioSource:
   m_ObjectHideFlags: 0

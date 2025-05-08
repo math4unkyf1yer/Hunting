@@ -11030,6 +11030,7 @@ MonoBehaviour:
   ASDJSAD: []
   enemyCount: 0
   amountTodefeat: 0
+  whichLevel: 0
 --- !u!4 &676524704
 Transform:
   m_ObjectHideFlags: 0
@@ -25269,9 +25270,9 @@ RectTransform:
   - {fileID: 190609062}
   - {fileID: 630897744}
   - {fileID: 1186285672}
-  - {fileID: 1959082408}
   - {fileID: 2038943360}
   - {fileID: 1818231047}
+  - {fileID: 1959082408}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

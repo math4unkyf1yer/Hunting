@@ -25,6 +25,7 @@ public class BeerAi : MonoBehaviour
     GameObject particleNoticeObject;
     private bool firstTime;
     public bool gotHit;
+    BikeController bikeScript;
 
 
     void OnEnable()
@@ -55,6 +56,7 @@ public class BeerAi : MonoBehaviour
         {
             Debug.LogError("Player not found! Make sure the Player object has the 'Player' tag.");
         }
+        bikeScript = GameObject.Find("Bike").GetComponent<BikeController>();
 
         startPosition = transform.position;
         agent.speed = roamSpeed;
@@ -65,14 +67,15 @@ public class BeerAi : MonoBehaviour
     {
         if (player == null) return;
 
+        
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= attackRange && !isAttacking)
+        if (distanceToPlayer <= attackRange && !isAttacking && bikeScript.cantCrash == false)
         {
             AttackPlayer();
         }
-        else if (distanceToPlayer <= detectionRange || gotHit == true)
-        {        
+        else if (distanceToPlayer <= detectionRange  && bikeScript.cantCrash == false || gotHit == true&& bikeScript.cantCrash == false)
+        {      
             ChasePlayer();
         }
         else
@@ -90,7 +93,6 @@ public class BeerAi : MonoBehaviour
                 firstTime = false;
             }
             bearAnimation.SetBool("isRunning", false);
-            Debug.Log("Romming");
             agent.speed = roamSpeed;
             if (!agent.pathPending && agent.remainingDistance < 1f)
             {

@@ -107,6 +107,11 @@ MonoBehaviour:
   EnemyDeerBody: {fileID: 0}
   oldMaterial: {fileID: 2100000, guid: faada7a51abe9624b800b5ebd896e79f, type: 2}
   newMaterial: {fileID: 2100000, guid: 5bfc6c8b992f01f4ba4b5003623a3f50, type: 2}
+  isShiny: 0
+  shinyChance: 3
+  shinyGold: {fileID: 2100000, guid: 35e2c52a23aad8145a45c4570ff0bfd7, type: 2}
+  Type: Normal
+  scoreEnemy: 10
 --- !u!82 &1364107525633344036
 AudioSource:
   m_ObjectHideFlags: 0

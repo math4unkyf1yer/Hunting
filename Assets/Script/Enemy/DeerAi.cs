@@ -60,7 +60,6 @@ public class DeerAi : MonoBehaviour
             particleObject = particleChild.gameObject;
             // Now you can use particleObject
         }
-        // CheckShiny();
 
         agent = GetComponent<NavMeshAgent>();
         originalPosition = transform.position;
@@ -136,27 +135,10 @@ public class DeerAi : MonoBehaviour
         float distance = Vector3.Distance(transform.position, gunshotPosition);
         if (distance <= hearingRange && !isRunningAway)
         {
-            Debug.Log($"{name} heard a gunshot and is fleeing!");
             RunAwayFrom(gunshotPosition);
         }
     }
 
-    void CheckShiny()
-    {
-        if (Random.Range(0f, 1f) <= shinyChance)
-        {
-            Renderer bodyRenderer = GetComponentInChildren<Renderer>();
-
-            if (bodyRenderer != null)
-            {
-                // Access material, transform, etc.
-                bodyRenderer.material = shinyGold;
-            }
-            isShiny = true;
-            deerType = "Shiny";
-            Debug.Log("A shiny deer has spawned!");
-        }
-    }
 
     IEnumerator ParticleClose()
     {

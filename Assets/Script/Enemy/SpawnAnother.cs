@@ -39,7 +39,6 @@ public class SpawnScript : MonoBehaviour
             Vector3 DeerSpawnPosition = new Vector3(x, 0, z);
             isAlive += 1;
             GameObject EnemyClone = Instantiate(Enemy, DeerSpawnPosition, Enemy.transform.rotation);
-            Debug.Log("Another Deer Has Spawned!");
         }
         if(isABird == true)
         {
@@ -49,7 +48,6 @@ public class SpawnScript : MonoBehaviour
             Vector3 DeerSpawnPosition = new Vector3(x, yRange, z);
             isAlive += 1;
             GameObject EnemyClone = Instantiate(Enemy, DeerSpawnPosition, Enemy.transform.rotation);
-            Debug.Log("Another Bird Has Spawned!");
         }
         if(isABear == true)
         {
@@ -59,7 +57,6 @@ public class SpawnScript : MonoBehaviour
             Vector3 DeerSpawnPosition = new Vector3(x, yRange, z);
             isAlive += 1;
             GameObject EnemyClone = Instantiate(Enemy, DeerSpawnPosition, Enemy.transform.rotation);
-            Debug.Log("Another Bear Has Spawned!");
         }
     }
 }

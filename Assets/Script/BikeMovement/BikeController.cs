@@ -45,6 +45,7 @@ public class BikeController : MonoBehaviour
 
     private SpawnBikeBack spawnScript;
     private Shoot shootScript;
+    private Score scoreScript;
     public Animator playerAnimation;
 
     //Material
@@ -87,6 +88,7 @@ public class BikeController : MonoBehaviour
             shootScript = gun.GetComponent<Shoot>();
 
         rayLenght = sphereRb.GetComponent<SphereCollider>().radius + 4f;
+        rayLenghtUp = sphereRb.GetComponent<SphereCollider>().radius + 44f;
         playerObjMaterial = playerObj.GetComponent<Renderer>();
 
         playerObjMaterial.material = newMat;
@@ -108,7 +110,7 @@ public class BikeController : MonoBehaviour
         velocity2 = bikeBody.transform.InverseTransformDirection(bikeBody.velocity);
         currentVelocityOffset = velocity2.z / maxSpeed;
 
-        if (!Grounded())
+        if (CanFlip())
         {
             PerformBackflip();
         }
@@ -364,6 +366,9 @@ public class BikeController : MonoBehaviour
 
         yield return new WaitForSeconds(.8f);
 
+        scoreScript = GameObject.Find("GameManager").GetComponent<Score>();
+        scoreScript.score += 5;
+
         playerAnimation.enabled = false;
         isflipping = false;
         // Reward the player
@@ -374,7 +379,18 @@ public class BikeController : MonoBehaviour
         // Reset
     }
 
-    bool Grounded()
+    public bool CanFlip()
+    {
+        if (Physics.Raycast(sphereRb.position, Vector3.down, out hit, rayLenghtUp, drivableLayer))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    public bool Grounded()
     {
         if (Physics.Raycast(sphereRb.position, Vector3.down, out hit, rayLenght, deadLayer))
         {
@@ -385,10 +401,9 @@ public class BikeController : MonoBehaviour
         }
         if (Physics.Raycast(sphereRb.position,Vector3.down,out hit, rayLenght, drivableLayer))
         {
-            inAir = false;
             return true;
         }
-        else { inAir = true; return false; }
+        else { return false; }
     }
     public void Gravity()
     {

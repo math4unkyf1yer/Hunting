@@ -19,9 +19,15 @@ public class TimeScript : MonoBehaviour
     public int enemyCount = 0;
     public int amountTodefeat;
 
+    //Get the score
+    private Score scoreScript;
+    private SaveLoad saveLoadScript;
+    public int whichLevel;
     void Start()
     {
         timeRemaining = timer;
+        scoreScript = gameObject.GetComponent<Score>();
+        saveLoadScript = SaveLoad.instance;
     }
 
     void Update()
@@ -36,7 +42,13 @@ public class TimeScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             timeRemaining = 0;
-            if(enemyCount >= amountTodefeat) {
+            if (saveLoadScript != null)
+            {
+                saveLoadScript.ChangeHighScore(scoreScript.score, whichLevel);
+                saveLoadScript.SaveHighScore();
+            }
+            if (enemyCount >= amountTodefeat) {
+
                 SceneManager.LoadScene("WinScreen");
             }
             else
